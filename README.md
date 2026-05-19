@@ -1,6 +1,6 @@
 # Merlin Skills
 
-![Merlin Skills routing diagram](assets/merlin-skills-flow.svg)
+![Merlin Skills cover: a premium developer workflow workbench with spec, goal, QA, browser proof, and ship artifacts connected by routing lines](assets/merlin-skills-cover.png)
 
 Merlin Skills is an open-source skill pack for long-running Codex web coding work. It combines a narrow set of proven upstream skills into one operating model:
 
@@ -80,7 +80,7 @@ gstack-runtime/            compatibility runtime for upstream gstack skills
 third_party/licenses/      upstream license copies
 docs/                      operating model and selection rationale
 scripts/                   installer and validators
-assets/                    README illustration
+assets/                    README cover and workflow illustration
 ```
 
 ## Provenance

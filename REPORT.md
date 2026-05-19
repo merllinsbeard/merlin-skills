@@ -12,7 +12,8 @@ spec-kit -> create-goal -> Codex /goal -> review -> qa -> Playwright proof -> sh
 
 The repository includes:
 
-- `README.md` with an SVG architecture image.
+- `README.md` with a generated bitmap cover image and an SVG architecture image asset.
+- `assets/merlin-skills-cover.png`, generated with `imagegen` using `image-taste-frontend` art direction for the public README.
 - `AGENTS.md` with the skill-first and `/goal`-first routing contract.
 - `skills/merlin-skills-routing` as the mandatory meta-routing skill.
 - `skills/create-goal` as the only adapted upstream workflow.
@@ -127,4 +128,3 @@ SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN
 ```
 
 The temp install produced 23 installable skills and restored the gstack runtime shims without touching the user's real global skill roots.
-

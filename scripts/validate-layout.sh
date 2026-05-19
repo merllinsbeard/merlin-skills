@@ -56,6 +56,7 @@ AGENTS.md
 LICENSE
 THIRD_PARTY_NOTICES.md
 assets/merlin-skills-flow.svg
+assets/merlin-skills-cover.png
 vendor-snapshots/manifest.json
 vendor-snapshots/archives/github-spec-kit-51e6a140e291.tar.gz
 vendor-snapshots/ab-method/agents/ab-create-goal.SKILL.vendor.md
@@ -104,4 +105,3 @@ if [ "$fail" -ne 0 ]; then
 fi
 
 echo "layout ok"
-
