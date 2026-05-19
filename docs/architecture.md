@@ -24,6 +24,8 @@ gstack skills are useful, but many are not standalone markdown prompts. Their `S
 
 `gstack-runtime/` packages the full curated helper surface the integrated gstack distribution needs: browser, design, PDF, gbrain, review, QA, safety, docs, and upgrade helpers. The repo tree intentionally contains no live `SKILL.md` files under `gstack-runtime`; the installer restores runtime `SKILL.md` files from `skills/<name>/SKILL.md`.
 
+The public install surface is namespaced: gstack-derived skills install into the chosen skill root as `gstack-*` names such as `gstack-review` and `gstack-office-hours`. The runtime sidecar keeps upstream unprefixed directory names such as `review/` and `office-hours/`.
+
 ## Repo-Owned Skills
 
 Merlin Skills owns only:

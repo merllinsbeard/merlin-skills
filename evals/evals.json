@@ -23,7 +23,7 @@
       "name": "web_feature_verification",
       "input": "A UI feature has been implemented and needs proof before ship.",
       "expected": [
-        "review or qa is routed",
+        "gstack-review or gstack-qa is routed",
         "playwright-cli is used for browser proof",
         "ship is last"
       ]
@@ -32,8 +32,8 @@
       "name": "route_product_idea_to_office_hours",
       "input": "User has an early product idea and asks whether it is worth building.",
       "expected": [
-        "office-hours is selected before plan-ceo-review",
-        "plan-ceo-review is reserved for concrete plan critique",
+        "gstack-office-hours is selected before gstack-plan-ceo-review",
+        "gstack-plan-ceo-review is reserved for concrete plan critique",
         "create-goal is not used until spec-kit artifacts exist"
       ]
     },
@@ -59,7 +59,7 @@
       "name": "route_browser_dogfood_to_gstack_browse",
       "input": "User asks to dogfood a local web app, click through the flow, and capture screenshots.",
       "expected": [
-        "browse or open-gstack-browser is selected",
+        "gstack-browse or gstack-open-gstack-browser is selected",
         "playwright-cli remains available for generated tests",
         "review and ship are not selected before browser evidence exists"
       ]
@@ -68,8 +68,8 @@
       "name": "route_gbrain_setup_to_full_gstack",
       "input": "User asks to set up gbrain for this repo and sync learnings.",
       "expected": [
-        "setup-gbrain is selected before sync-gbrain",
-        "learn is reserved for reading or managing captured learnings",
+        "gstack-setup-gbrain is selected before gstack-sync-gbrain",
+        "gstack-learn is reserved for reading or managing captured learnings",
         "create-goal is not selected because this is runtime setup"
       ]
     },
@@ -77,7 +77,7 @@
       "name": "routing_inventory_covers_every_skill",
       "input": "Repo has an installed skill under skills/<name>/SKILL.md.",
       "expected": [
-        "merlin-skills-routing Complete Skill Inventory mentions that skill by exact name",
+        "merlin-skills-routing Complete Skill Inventory mentions that installed skill by exact install-facing name",
         "validate-layout fails if any installed skill is missing from the router",
         "source packs are represented, including spec-kit, AB Method, Matt Pocock, gstack, Playwright, Superpowers, and Merlin-owned meta skills"
       ]

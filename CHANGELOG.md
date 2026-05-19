@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.4 - 2026-05-20
+
+- Namespaced all gstack-derived user-facing skills on install with the `gstack-` prefix.
+- Kept `$GSTACK_ROOT` runtime directories unprefixed for upstream compatibility.
+- Updated `install-merlin-skills`, `merlin-skills-routing`, docs, validation, and smoke-test expectations for prefixed install names.
+
 ## 0.1.3 - 2026-05-20
 
 - Integrated the full gstack skill distribution, including browser, safety, docs, deploy, GBrain, context, PDF, model-wrapper, and OpenClaw-specific skills.

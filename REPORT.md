@@ -7,7 +7,7 @@ Date: 2026-05-19
 Created a production-quality open-source repository for a narrow autonomous web-coding stack:
 
 ```text
-office-hours -> spec-kit -> create-goal -> Codex /goal -> review -> qa -> Playwright proof -> ship
+gstack-office-hours -> spec-kit -> create-goal -> Codex /goal -> gstack-review -> gstack-qa -> Playwright proof -> gstack-ship
 ```
 
 The repository includes:
@@ -63,7 +63,7 @@ Why not more: additional skills would broaden the pack without improving the spe
 As of v0.1.3, included fully:
 
 - all generic gstack skills;
-- `codex` and `claude` wrappers;
+- `gstack-codex` and `gstack-claude` wrappers on the install surface;
 - root `gstack` browser skill;
 - OpenClaw-specific gstack skills;
 - full curated `gstack-runtime` sidecar for browser, design, PDF, QA, review, docs, safety, GBrain, deploy, and upgrade helpers.
@@ -130,8 +130,18 @@ For v0.1.2, the expected temp install count was 25 installable skills.
 
 Fully integrated gstack into Merlin Skills.
 
-Added all generic gstack skills, `codex`/`claude` wrappers, root `gstack`, and OpenClaw-specific gstack skills. Expanded `gstack-runtime` from selected compatibility helpers into a full curated sidecar. Removed runtime-only `SKILL.runtime.md` shims; installer now restores runtime `SKILL.md` files by overlaying top-level `skills/<name>/SKILL.md`.
+Added all generic gstack skills, `gstack-codex`/`gstack-claude` install-facing wrappers, root `gstack`, and OpenClaw-specific gstack skills. Expanded `gstack-runtime` from selected compatibility helpers into a full curated sidecar. Removed runtime-only `SKILL.runtime.md` shims; installer now restores runtime `SKILL.md` files by overlaying top-level `skills/<name>/SKILL.md`.
 
 Why included: after `v0.1.2`, the package had a clean installer and meta-routing layer. Full gstack makes the public repo a complete skill distribution instead of a partial subset, while still letting the router keep normal `/goal` work narrow.
 
 The expected temp install count is now 63 installable skills.
+
+## v0.1.4 Update
+
+Namespaced all gstack-derived user-facing skills during install.
+
+The source snapshot directories stay close to upstream, but `scripts/install-local.sh` now installs gstack skills into the selected `SKILL_ROOT` with `gstack-` names such as `gstack-review`, `gstack-qa`, `gstack-office-hours`, `gstack-codex`, and `gstack-plan-ceo-review`. Already-prefixed upstream skills keep their names, and the root `gstack` skill remains the namespace entrypoint.
+
+The runtime sidecar still uses upstream unprefixed directories under `$GSTACK_ROOT` (`review/`, `qa/`, `office-hours/`, etc.) because upstream gstack skill files and helper scripts depend on those paths. The installer patches installed `name:` frontmatter and sets `skill_prefix=true` so the routing layer and the installed skills agree.
+
+Validation now checks `merlin-skills-routing` against install-facing skill names, not just source directory names.

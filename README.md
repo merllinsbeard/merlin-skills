@@ -4,7 +4,7 @@
 
 Merlin Skills is an open-source skill pack for long-running Codex web coding work. It combines a narrow set of proven upstream skills into one operating model:
 
-`office-hours -> spec-kit -> create-goal -> /goal -> review -> qa -> playwright proof -> ship`
+`gstack-office-hours -> spec-kit -> create-goal -> /goal -> gstack-review -> gstack-qa -> playwright proof -> gstack-ship`
 
 The bias is simple: write the specification once, convert it into a durable goal contract, then let Codex work against that contract with the right specialist skill at each phase.
 
@@ -20,7 +20,7 @@ The bias is simple: write the specification once, convert it into a durable goal
 | `lackeyjb/playwright-skill` | `playwright-skill` | General-purpose Playwright automation when scripted browser checks are better than CLI steps. |
 | `obra/superpowers` | `brainstorming` only | Strong design-first entrypoint for ambiguous creative/product work. |
 
-All upstream skills are copied as upstream snapshots. This repo does not rewrite upstream skills. The only adapted skill is `skills/create-goal`, because it intentionally converts AB Method's goal creation idea into a spec-kit-native Codex goal contract.
+All upstream skills are copied as upstream snapshots. This repo does not rewrite upstream source files. During install, gstack copies get namespaced `name:` frontmatter in the target skill root so the user-facing commands are `gstack-*`. The only adapted skill source is `skills/create-goal`, because it intentionally converts AB Method's goal creation idea into a spec-kit-native Codex goal contract.
 
 Repo-owned meta skills:
 
@@ -47,7 +47,7 @@ Install into Claude:
 npm run install:claude
 ```
 
-The installer copies all installable skills into the selected skill root. It also installs the full gstack runtime sidecar at `~/.claude/skills/gstack`, because upstream gstack skill files intentionally call helper scripts from that path.
+The installer copies all installable skills into the selected skill root. Gstack-derived user-facing skills are installed with the `gstack-` prefix, such as `gstack-review`, `gstack-qa`, and `gstack-office-hours`, while the runtime sidecar keeps upstream directories such as `review/`, `qa/`, and `office-hours/` under `~/.claude/skills/gstack`.
 
 Install into a project-local Codex skill root:
 
@@ -76,24 +76,24 @@ Typical routes:
 | Situation | Route |
 | --- | --- |
 | Install or refresh Merlin Skills | `install-merlin-skills` |
-| Product idea or "is this worth building?" | `office-hours -> plan-ceo-review -> spec-kit -> create-goal` |
+| Product idea or "is this worth building?" | `gstack-office-hours -> gstack-plan-ceo-review -> spec-kit -> create-goal` |
 | Ambiguous creative feature | `brainstorming -> spec-kit -> create-goal` |
 | Existing docs but no goal | `create-goal` |
 | Implementation from spec | `merlin-skills-routing -> tdd -> /goal` |
-| Hard bug | `diagnose -> tdd -> qa` |
-| UI plan | `plan-design-review -> design-shotgun/design-html -> playwright-cli` |
-| Ready to land | `review -> qa -> ship` |
+| Hard bug | `diagnose -> tdd -> gstack-qa` |
+| UI plan | `gstack-plan-design-review -> gstack-design-shotgun/gstack-design-html -> playwright-cli` |
+| Ready to land | `gstack-review -> gstack-qa -> gstack-ship` |
 | Browser proof needed | `playwright-cli` first, `playwright-skill` for custom scripts |
-| Browser dogfood or screenshots | `browse` or `open-gstack-browser` |
-| Safety boundary needed | `careful`, `freeze`, `guard`, or `unfreeze` |
-| Health, perf, or canary | `health`, `benchmark`, or `canary` |
-| Context handoff | `context-save` or `context-restore` |
-| Docs or release docs | `document-generate` or `document-release` |
-| Deploy workflow | `setup-deploy -> land-and-deploy` |
-| GBrain workflow | `setup-gbrain -> sync-gbrain -> learn` |
-| PDF export | `make-pdf` |
-| Scraping flow | `scrape -> skillify` |
-| Outside model wrapper | `codex` or `claude` |
+| Browser dogfood or screenshots | `gstack-browse` or `gstack-open-gstack-browser` |
+| Safety boundary needed | `gstack-careful`, `gstack-freeze`, `gstack-guard`, or `gstack-unfreeze` |
+| Health, perf, or canary | `gstack-health`, `gstack-benchmark`, or `gstack-canary` |
+| Context handoff | `gstack-context-save` or `gstack-context-restore` |
+| Docs or release docs | `gstack-document-generate` or `gstack-document-release` |
+| Deploy workflow | `gstack-setup-deploy -> gstack-land-and-deploy` |
+| GBrain workflow | `gstack-setup-gbrain -> gstack-sync-gbrain -> gstack-learn` |
+| PDF export | `gstack-make-pdf` |
+| Scraping flow | `gstack-scrape -> gstack-skillify` |
+| Outside model wrapper | `gstack-codex` or `gstack-claude` |
 | OpenClaw-specific request | `gstack-openclaw-*` |
 
 ## Repo Layout
@@ -126,7 +126,7 @@ npm test
 Validation checks:
 
 - every installable skill lives directly under `skills/<name>/SKILL.md`;
-- `merlin-skills-routing` mentions every installable skill by exact name;
+- `merlin-skills-routing` mentions every install-facing skill name, including prefixed gstack names;
 - no nested `SKILL.md` exists outside the allowed runtime surface;
 - upstream manifest paths exist;
 - license files exist;

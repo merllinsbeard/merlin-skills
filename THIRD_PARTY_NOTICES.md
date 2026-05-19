@@ -31,7 +31,7 @@ This repository contains repo-owned files under the MIT license plus selected up
 - Repository: https://github.com/garrytan/gstack
 - Commit: `026751ea2012ec7cbedc149ba615929a20026501`
 - License: MIT
-- Included skills: full generic gstack distribution, `codex`/`claude` wrappers, root `gstack` browser skill, OpenClaw-specific gstack skills, and curated runtime helpers needed by those skills.
+- Included skills: full generic gstack distribution, `gstack-codex`/`gstack-claude` install-facing wrappers, root `gstack` browser skill, OpenClaw-specific gstack skills, and curated runtime helpers needed by those skills.
 - License copy: `third_party/licenses/gstack.LICENSE`
 
 ## microsoft/playwright-cli

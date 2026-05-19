@@ -12,7 +12,7 @@ npm test
 npm run install:codex
 ```
 
-This copies `skills/*` into `~/.codex/skills`.
+This copies installable skills into `~/.codex/skills`. Gstack-derived skills are installed with `gstack-` prefixes.
 
 ## Install Into Claude
 
@@ -20,7 +20,7 @@ This copies `skills/*` into `~/.codex/skills`.
 npm run install:claude
 ```
 
-This copies `skills/*` into `~/.claude/skills`.
+This copies installable skills into `~/.claude/skills`. Gstack-derived skills are installed with `gstack-` prefixes.
 
 ## Install Into Both Global Roots
 
@@ -59,6 +59,8 @@ gstack skills expect helpers at:
 
 The installer always syncs `gstack-runtime/` there, even when installing into Codex. This preserves upstream gstack skill behavior without editing copied gstack skills. Runtime `SKILL.md` files are not committed under `gstack-runtime`; the installer restores them by overlaying the top-level `skills/<name>/SKILL.md` files into the sidecar.
 
+User-facing gstack skills are namespaced in the selected skill root: `gstack-review`, `gstack-qa`, `gstack-office-hours`, `gstack-codex`, and so on. The runtime sidecar keeps upstream unprefixed directories like `review/`, `qa/`, and `office-hours/`.
+
 The installer attempts to build `browse/dist/browse`, `browse/dist/find-browse`, `design/dist/design`, `make-pdf/dist/pdf`, and `bin/gstack-global-discover` if Bun is available. To skip that step:
 
 ```bash
@@ -70,6 +72,8 @@ MERLIN_SKIP_GSTACK_BUILD=1 npm run install:codex
 ```bash
 SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN_SKIP_GSTACK_BUILD=1 bash scripts/install-local.sh
 find /tmp/merlin-skills-root -maxdepth 2 -name SKILL.md | sort
+test -f /tmp/merlin-skills-root/gstack-review/SKILL.md
+test -f /tmp/merlin-gstack-runtime/review/SKILL.md
 ```
 
 This release should produce 63 installable `SKILL.md` files in the selected skill root.

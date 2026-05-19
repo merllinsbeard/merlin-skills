@@ -6,6 +6,83 @@ cd "$ROOT"
 
 fail=0
 
+gstack_skills="
+autoplan
+benchmark
+benchmark-models
+browse
+canary
+careful
+claude
+codex
+context-restore
+context-save
+cso
+devex-review
+document-generate
+document-release
+freeze
+guard
+gstack-openclaw-ceo-review
+gstack-openclaw-investigate
+gstack-openclaw-office-hours
+gstack-openclaw-retro
+gstack-upgrade
+health
+investigate
+land-and-deploy
+landing-report
+learn
+make-pdf
+open-gstack-browser
+pair-agent
+retro
+scrape
+setup-browser-cookies
+setup-deploy
+setup-gbrain
+skillify
+sync-gbrain
+unfreeze
+review
+qa
+qa-only
+ship
+office-hours
+design-consultation
+design-html
+design-review
+design-shotgun
+plan-ceo-review
+plan-design-review
+plan-devex-review
+plan-eng-review
+plan-tune
+"
+
+is_gstack_skill() {
+  local needle="$1"
+  local skill
+  for skill in $gstack_skills; do
+    if [ "$skill" = "$needle" ]; then
+      return 0
+    fi
+  done
+  return 1
+}
+
+install_skill_name() {
+  local skill="$1"
+  if is_gstack_skill "$skill"; then
+    case "$skill" in
+      gstack-*) printf '%s\n' "$skill" ;;
+      *) printf 'gstack-%s\n' "$skill" ;;
+    esac
+    return 0
+  fi
+  printf '%s\n' "$skill"
+}
+
 while IFS= read -r skill_file; do
   dir="$(dirname "$skill_file")"
   parent="$(dirname "$dir")"
@@ -92,8 +169,9 @@ done
 
 while IFS= read -r skill_file; do
   skill="$(basename "$(dirname "$skill_file")")"
-  if ! grep -qF "\`$skill\`" "skills/merlin-skills-routing/SKILL.md"; then
-    echo "Routing skill does not mention installed skill: $skill" >&2
+  install_name="$(install_skill_name "$skill")"
+  if ! grep -qF "\`$install_name\`" "skills/merlin-skills-routing/SKILL.md"; then
+    echo "Routing skill does not mention installed skill: $install_name (source: $skill)" >&2
     fail=1
   fi
 done <<EOF

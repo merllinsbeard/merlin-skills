@@ -44,6 +44,21 @@ GSTACK_ROOT="$HOME/.claude/skills/gstack"
 
 Only use project-local or custom `GSTACK_ROOT` when the user explicitly asks. Full gstack skills call helpers from the global gstack runtime path, and vendoring that runtime inside projects should not be the default.
 
+## Gstack Prefix Contract
+
+Install every gstack-derived user-facing skill with the `gstack-` prefix. This avoids collisions with skills from Matt Pocock, Merlin-owned meta skills, project-local skills, or future packs.
+
+Examples:
+
+- source `skills/review` installs as `$SKILL_ROOT/gstack-review`;
+- source `skills/qa` installs as `$SKILL_ROOT/gstack-qa`;
+- source `skills/office-hours` installs as `$SKILL_ROOT/gstack-office-hours`;
+- source `skills/codex` installs as `$SKILL_ROOT/gstack-codex`;
+- already-prefixed source skills such as `skills/gstack-upgrade` and `skills/gstack-openclaw-ceo-review` keep their names;
+- the root browser/runtime entrypoint installs as `$SKILL_ROOT/gstack`.
+
+Do not rename `$GSTACK_ROOT` runtime directories. They must stay unprefixed (`$GSTACK_ROOT/review`, `$GSTACK_ROOT/qa`, `$GSTACK_ROOT/office-hours`, etc.) because upstream gstack skill files and helper scripts refer to those paths. The installer patches installed `name:` frontmatter and sets gstack `skill_prefix=true`.
+
 ## Locate The Merlin Skills Repo
 
 Find the source checkout in this order:
@@ -134,7 +149,7 @@ If the file has an existing `## Merlin Skills` block, replace only that block. O
 
 Use `merlin-skills-routing` before non-trivial implementation work and always before long-running `/goal` work.
 
-Default route: `office-hours` or `brainstorming` -> spec-kit -> `create-goal` -> `/goal` -> `review` -> `qa` -> browser proof -> `ship`.
+Default route: `gstack-office-hours` or `brainstorming` -> spec-kit -> `create-goal` -> `/goal` -> `gstack-review` -> `gstack-qa` -> browser proof -> `gstack-ship`.
 
 Create or refresh `GOAL.md` from spec-kit artifacts before autonomous implementation. Use `install-merlin-skills` to refresh this project's local skill installation.
 ```
@@ -148,7 +163,11 @@ After install, verify:
 ```bash
 find "$SKILL_ROOT" -maxdepth 2 -name SKILL.md | wc -l
 test -f "$SKILL_ROOT/install-merlin-skills/SKILL.md"
+test -f "$SKILL_ROOT/gstack-office-hours/SKILL.md"
+test -f "$SKILL_ROOT/gstack-review/SKILL.md"
 test -f "$GSTACK_ROOT/office-hours/SKILL.md"
+grep -q '^name: gstack-office-hours$' "$SKILL_ROOT/gstack-office-hours/SKILL.md"
+grep -q '^name: gstack-office-hours$' "$GSTACK_ROOT/office-hours/SKILL.md"
 ```
 
 Expected installable skill count for this release: `63`.

@@ -13,10 +13,10 @@ brainstorming
   -> create-goal
   -> Codex /goal
   -> tdd / diagnose
-  -> review
-  -> qa / qa-only
+  -> gstack-review
+  -> gstack-qa / gstack-qa-only
   -> playwright-cli / playwright-skill
-  -> ship
+  -> gstack-ship
 ```
 
 Most work should skip some steps. The router chooses the smallest useful chain.
@@ -27,9 +27,9 @@ Installation and refresh requests are outside the spec-to-ship conveyor. Route t
 
 ### Discovery
 
-Use `office-hours` when the user is shaping a product idea, testing whether something is worth building, or choosing a wedge. Use `brainstorming` when the work is creative or UX-heavy but not primarily a viability question. Use `zoom-out` when the codebase area is unfamiliar.
+Use `gstack-office-hours` when the user is shaping a product idea, testing whether something is worth building, or choosing a wedge. Use `brainstorming` when the work is creative or UX-heavy but not primarily a viability question. Use `zoom-out` when the codebase area is unfamiliar.
 
-Use `plan-ceo-review` after a concrete plan exists and needs founder/scope pressure.
+Use `gstack-plan-ceo-review` after a concrete plan exists and needs founder/scope pressure.
 
 ### Specification
 
@@ -49,12 +49,12 @@ Use `tdd` for feature work and bug fixes where tests can drive the change. Use `
 
 ### Verification
 
-Use `review` for code review, `qa` for test-fix-verify, and `qa-only` when the user asked for a report without fixes.
+Use `gstack-review` for code review, `gstack-qa` for test-fix-verify, and `gstack-qa-only` when the user asked for a report without fixes.
 
 Use `playwright-cli` for token-efficient browser interaction and Playwright test work. Use `playwright-skill` when a custom script is faster or more repeatable.
 
-Use gstack browser/runtime skills when their specific loop is the shortest path: `browse` or `open-gstack-browser` for dogfooding, `health`/`benchmark`/`canary` for quality checks, `careful`/`freeze`/`guard` for safety boundaries, `context-save`/`context-restore` for handoff, `document-generate`/`document-release` for docs, `setup-deploy`/`land-and-deploy` for deploy, `setup-gbrain`/`sync-gbrain`/`learn` for gbrain, `make-pdf` for PDFs, `scrape`/`skillify` for browser extraction, and `codex`/`claude` for outside model review.
+Use gstack browser/runtime skills when their specific loop is the shortest path: `gstack-browse` or `gstack-open-gstack-browser` for dogfooding, `gstack-health`/`gstack-benchmark`/`gstack-canary` for quality checks, `gstack-careful`/`gstack-freeze`/`gstack-guard` for safety boundaries, `gstack-context-save`/`gstack-context-restore` for handoff, `gstack-document-generate`/`gstack-document-release` for docs, `gstack-setup-deploy`/`gstack-land-and-deploy` for deploy, `gstack-setup-gbrain`/`gstack-sync-gbrain`/`gstack-learn` for gbrain, `gstack-make-pdf` for PDFs, `gstack-scrape`/`gstack-skillify` for browser extraction, and `gstack-codex`/`gstack-claude` for outside model review.
 
 ### Shipping
 
-Use `ship` only after implementation and verification evidence are ready.
+Use `gstack-ship` only after implementation and verification evidence are ready.
