@@ -5,6 +5,14 @@
   "description": "A spec-first, skill-first, goal-first skill pack for autonomous web coding with Codex.",
   "license": "MIT",
   "type": "module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/merllinsbeard/merlin-skills.git"
+  },
+  "bugs": {
+    "url": "https://github.com/merllinsbeard/merlin-skills/issues"
+  },
+  "homepage": "https://github.com/merllinsbeard/merlin-skills#readme",
   "scripts": {
     "validate": "bash scripts/validate-layout.sh && node scripts/validate-manifest.mjs",
     "test": "npm run validate",
@@ -23,4 +31,3 @@
     "node": ">=20"
   }
 }
-

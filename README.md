@@ -25,7 +25,7 @@ All upstream skills are copied as upstream snapshots. This repo does not rewrite
 ## Quick Start
 
 ```bash
-git clone <repo-url>
+git clone https://github.com/merllinsbeard/merlin-skills.git
 cd merlin-skills
 npm test
 ```
