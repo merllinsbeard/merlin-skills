@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.3 - 2026-05-20
+
+- Integrated the full gstack skill distribution, including browser, safety, docs, deploy, GBrain, context, PDF, model-wrapper, and OpenClaw-specific skills.
+- Expanded `gstack-runtime` into a full curated sidecar while keeping live runtime `SKILL.md` files out of the repo tree.
+- Updated installer, routing, validation, docs, manifest, notices, and release notes for 63 installable skills.
+
 ## 0.1.2 - 2026-05-19
 
 - Added repo-owned `install-merlin-skills` meta skill for global Codex/Claude and project-local installs.

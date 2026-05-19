@@ -60,33 +60,17 @@ Why not more: additional skills would broaden the pack without improving the spe
 
 ### garrytan/gstack
 
-Included as user-facing skills:
+As of v0.1.3, included fully:
 
-- `review`
-- `qa`
-- `qa-only`
-- `ship`
-- `office-hours`
-- `design-consultation`
-- `design-html`
-- `design-review`
-- `design-shotgun`
-- `plan-ceo-review`
-- `plan-design-review`
-- `plan-devex-review`
-- `plan-eng-review`
-- `plan-tune`
+- all generic gstack skills;
+- `codex` and `claude` wrappers;
+- root `gstack` browser skill;
+- OpenClaw-specific gstack skills;
+- full curated `gstack-runtime` sidecar for browser, design, PDF, QA, review, docs, safety, GBrain, deploy, and upgrade helpers.
 
-Included as compatibility runtime:
+Why included: gstack is the strongest adjacent runtime for browser dogfooding, review, QA, shipping, deployment, documentation, context handoff, safety guardrails, and memory/proof workflows around Codex.
 
-- helper scripts under `gstack-runtime/bin`, `scripts`, and `lib`;
-- `browse` and `design` build sources;
-- runtime-only `document-release` and `gstack-upgrade` shims because selected gstack skills reference them.
-- a runtime copy of `office-hours` for hardcoded gstack paths, while also exposing it as a top-level installable skill.
-
-Why included: gstack provides product shaping through `office-hours`, founder/scope review through `plan-ceo-review`, and strong review, QA, design, and ship gates after Codex has implemented against a goal.
-
-Why not fully included: full gstack is a wider product/runtime with browser, deploy, benchmark, setup, GBrain, and control-plane concerns. This repo keeps the parts that strengthen the web-coding conveyor.
+Why still routed narrowly: full availability should not turn every task into full process. `merlin-skills-routing` keeps the default spec-to-goal conveyor small and only routes to extra gstack skills when they are the shortest useful loop.
 
 ### microsoft/playwright-cli
 
@@ -140,4 +124,14 @@ Why included: installation is now part of the public operating model. The packag
 
 Why repo-owned: no upstream skill owns Merlin Skills distribution, gstack runtime compatibility, or the project instruction block policy.
 
-The expected temp install count is 25 installable skills.
+For v0.1.2, the expected temp install count was 25 installable skills.
+
+## v0.1.3 Update
+
+Fully integrated gstack into Merlin Skills.
+
+Added all generic gstack skills, `codex`/`claude` wrappers, root `gstack`, and OpenClaw-specific gstack skills. Expanded `gstack-runtime` from selected compatibility helpers into a full curated sidecar. Removed runtime-only `SKILL.runtime.md` shims; installer now restores runtime `SKILL.md` files by overlaying top-level `skills/<name>/SKILL.md`.
+
+Why included: after `v0.1.2`, the package had a clean installer and meta-routing layer. Full gstack makes the public repo a complete skill distribution instead of a partial subset, while still letting the router keep normal `/goal` work narrow.
+
+The expected temp install count is now 63 installable skills.

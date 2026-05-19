@@ -16,13 +16,13 @@ The full spec-kit repository is archived instead of extracted because upstream r
 
 ## Why gstack-runtime Exists
 
-Selected gstack skills are useful, but they are not standalone markdown prompts. Their `SKILL.md` files call helper scripts under:
+gstack skills are useful, but many are not standalone markdown prompts. Their `SKILL.md` files call helper scripts under:
 
 ```text
 ~/.claude/skills/gstack/
 ```
 
-`gstack-runtime/` packages the helper surface those selected skills need. The installer places it at that expected path and restores a few runtime-only `SKILL.md` files used by upstream gstack references.
+`gstack-runtime/` packages the full curated helper surface the integrated gstack distribution needs: browser, design, PDF, gbrain, review, QA, safety, docs, and upgrade helpers. The repo tree intentionally contains no live `SKILL.md` files under `gstack-runtime`; the installer restores runtime `SKILL.md` files from `skills/<name>/SKILL.md`.
 
 ## Repo-Owned Skills
 

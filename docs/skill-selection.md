@@ -39,26 +39,11 @@ Not included from the same repository when it duplicates the selected route or d
 
 ### gstack
 
-Included:
+Included fully: generic gstack skills, `codex`/`claude` wrappers, the root `gstack` browser skill, OpenClaw-specific gstack skills, and the curated runtime sidecar those skills need.
 
-- `review`
-- `qa`
-- `qa-only`
-- `ship`
-- `office-hours`
-- `design-consultation`
-- `design-html`
-- `design-review`
-- `design-shotgun`
-- `plan-ceo-review`
-- `plan-design-review`
-- `plan-devex-review`
-- `plan-eng-review`
-- `plan-tune`
+`office-hours` is the product-shaping front door for new ideas and "is this worth building?" questions. `plan-ceo-review` then challenges scope and ambition once a concrete plan exists. The broader gstack surface covers browser dogfooding, review, QA, docs, deploy, benchmarking, canary, safety guards, context save/restore, PDF generation, scraping, GBrain setup/sync, and OpenClaw-specific review loops.
 
-`office-hours` is the product-shaping front door for new ideas and "is this worth building?" questions. `plan-ceo-review` then challenges scope and ambition once a concrete plan exists. The rest are strong gates around planning, UI quality, QA, and shipping. They sit around spec/goal rather than replacing spec/goal.
-
-Not included as primary user skills: broad gstack orchestration, deploy setup, canary, benchmarking, browser cookie setup, OpenClaw/GBrain setup, and unrelated maintenance skills. Those are useful in their own context, but they widen this package beyond the spec-to-ship loop.
+Full availability does not make every gstack skill primary. The router keeps the default spec-to-goal conveyor narrow and selects the extra gstack skills only when they are the smallest useful tool for the job.
 
 ### Playwright
 

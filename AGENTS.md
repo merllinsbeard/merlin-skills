@@ -59,6 +59,17 @@ Do not start long autonomous work from a loose chat summary when a spec director
 | QA report only | `qa-only` |
 | Browser proof or generated Playwright tests | `playwright-cli` |
 | Custom Playwright automation | `playwright-skill` |
+| Browser dogfooding or screenshots | `browse` or `open-gstack-browser` |
+| Safety guardrails or edit boundary | `careful`, `freeze`, `guard`, `unfreeze` |
+| Health, perf, benchmark, or canary | `health`, `benchmark`, `canary` |
+| Context handoff | `context-save`, `context-restore` |
+| Documentation generation or release docs | `document-generate`, `document-release` |
+| Deploy setup or land-and-deploy | `setup-deploy`, `land-and-deploy` |
+| GBrain setup, sync, or learnings | `setup-gbrain`, `sync-gbrain`, `learn` |
+| PDF export | `make-pdf` |
+| Scraping or scrape skill creation | `scrape`, `skillify` |
+| Outside model review/challenge | `codex`, `claude` |
+| OpenClaw-specific workflow | matching `gstack-openclaw-*` skill |
 | UI/design plan review | `plan-design-review` |
 | Engineering plan review | `plan-eng-review` |
 | Founder/product scope review after a concrete plan exists | `plan-ceo-review` |

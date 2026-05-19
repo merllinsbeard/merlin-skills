@@ -18,24 +18,47 @@ $(find . -path './.git' -prune -o -name SKILL.md -print | sort)
 EOF
 
 required_skills="
-merlin-skills-routing
-install-merlin-skills
-create-goal
+autoplan
+benchmark
+benchmark-models
 brainstorming
-tdd
-to-prd
-grill-with-docs
-diagnose
-zoom-out
-review
-qa
-qa-only
-ship
-office-hours
+browse
+canary
+careful
+claude
+codex
+context-restore
+context-save
+create-goal
+cso
 design-consultation
 design-html
 design-review
 design-shotgun
+devex-review
+diagnose
+document-generate
+document-release
+freeze
+grill-with-docs
+gstack
+gstack-openclaw-ceo-review
+gstack-openclaw-investigate
+gstack-openclaw-office-hours
+gstack-openclaw-retro
+gstack-upgrade
+guard
+health
+install-merlin-skills
+investigate
+land-and-deploy
+landing-report
+learn
+make-pdf
+merlin-skills-routing
+office-hours
+open-gstack-browser
+pair-agent
 plan-ceo-review
 plan-design-review
 plan-devex-review
@@ -43,6 +66,21 @@ plan-eng-review
 plan-tune
 playwright-cli
 playwright-skill
+qa
+qa-only
+retro
+review
+scrape
+setup-browser-cookies
+setup-deploy
+setup-gbrain
+ship
+skillify
+sync-gbrain
+tdd
+to-prd
+unfreeze
+zoom-out
 "
 
 for skill in $required_skills; do
@@ -51,6 +89,16 @@ for skill in $required_skills; do
     fail=1
   fi
 done
+
+while IFS= read -r skill_file; do
+  skill="$(basename "$(dirname "$skill_file")")"
+  if ! grep -qF "\`$skill\`" "skills/merlin-skills-routing/SKILL.md"; then
+    echo "Routing skill does not mention installed skill: $skill" >&2
+    fail=1
+  fi
+done <<EOF
+$(find skills -mindepth 2 -maxdepth 2 -name SKILL.md -print | sort)
+EOF
 
 required_paths="
 README.md
@@ -73,6 +121,7 @@ third_party/licenses/superpowers.LICENSE
 gstack-runtime/ETHOS.md
 gstack-runtime/VERSION
 gstack-runtime/bin/gstack-config
+gstack-runtime/bin/gstack-global-discover.ts
 gstack-runtime/bin/gstack-update-check
 gstack-runtime/bin/gstack-repo-mode
 gstack-runtime/bin/gstack-slug
@@ -84,9 +133,16 @@ gstack-runtime/browse/bin/remote-slug
 gstack-runtime/browse/src/cli.ts
 gstack-runtime/browse/scripts/build-node-server.sh
 gstack-runtime/design/src/cli.ts
-gstack-runtime/office-hours/SKILL.runtime.md
-gstack-runtime/document-release/SKILL.runtime.md
-gstack-runtime/gstack-upgrade/SKILL.runtime.md
+gstack-runtime/design-html/vendor/pretext.js
+gstack-runtime/make-pdf/src/cli.ts
+gstack-runtime/plan-devex-review/dx-hall-of-fame.md
+gstack-runtime/qa/templates/qa-report-template.md
+gstack-runtime/qa/references/issue-taxonomy.md
+gstack-runtime/review/checklist.md
+gstack-runtime/review/specialists/security.md
+gstack-runtime/careful/bin/check-careful.sh
+gstack-runtime/freeze/bin/check-freeze.sh
+gstack-runtime/gstack-upgrade/migrations/v1.40.0.0.sh
 "
 
 for path in $required_paths; do

@@ -42,7 +42,7 @@ For all normal modes, keep:
 GSTACK_ROOT="$HOME/.claude/skills/gstack"
 ```
 
-Only use project-local or custom `GSTACK_ROOT` when the user explicitly asks. Selected gstack skills call helpers from the global gstack runtime path, and vendoring that runtime inside projects should not be the default.
+Only use project-local or custom `GSTACK_ROOT` when the user explicitly asks. Full gstack skills call helpers from the global gstack runtime path, and vendoring that runtime inside projects should not be the default.
 
 ## Locate The Merlin Skills Repo
 
@@ -151,7 +151,7 @@ test -f "$SKILL_ROOT/install-merlin-skills/SKILL.md"
 test -f "$GSTACK_ROOT/office-hours/SKILL.md"
 ```
 
-Expected installable skill count for this release: `25`.
+Expected installable skill count for this release: `63`.
 
 For project-local installs, also verify the instruction file contains exactly one `## Merlin Skills` block.
 

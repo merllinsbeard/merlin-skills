@@ -49,17 +49,17 @@ SKILL_ROOT="$PROJECT_ROOT/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gsta
 
 Project-local installs should also add a compact `## Merlin Skills` block to the project's `AGENTS.md` for Codex or `CLAUDE.md` for Claude. The `install-merlin-skills` meta skill owns that instruction-file update.
 
-## gstack Compatibility Runtime
+## gstack Runtime Sidecar
 
-Selected gstack skills expect helpers at:
+gstack skills expect helpers at:
 
 ```text
 ~/.claude/skills/gstack/
 ```
 
-The installer always syncs `gstack-runtime/` there, even when installing into Codex. This preserves upstream gstack skill behavior without editing the copied gstack skills.
+The installer always syncs `gstack-runtime/` there, even when installing into Codex. This preserves upstream gstack skill behavior without editing copied gstack skills. Runtime `SKILL.md` files are not committed under `gstack-runtime`; the installer restores them by overlaying the top-level `skills/<name>/SKILL.md` files into the sidecar.
 
-The installer attempts to build `browse/dist/browse` and `design/dist/design` if Bun is available. To skip that step:
+The installer attempts to build `browse/dist/browse`, `browse/dist/find-browse`, `design/dist/design`, `make-pdf/dist/pdf`, and `bin/gstack-global-discover` if Bun is available. To skip that step:
 
 ```bash
 MERLIN_SKIP_GSTACK_BUILD=1 npm run install:codex
@@ -72,4 +72,4 @@ SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN
 find /tmp/merlin-skills-root -maxdepth 2 -name SKILL.md | sort
 ```
 
-This release should produce 25 installable `SKILL.md` files in the selected skill root.
+This release should produce 63 installable `SKILL.md` files in the selected skill root.

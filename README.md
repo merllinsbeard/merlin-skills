@@ -15,7 +15,7 @@ The bias is simple: write the specification once, convert it into a durable goal
 | `github/spec-kit` | Full source snapshot archive | Canonical `spec.md`, `plan.md`, `tasks.md`, constitution, and spec-driven implementation flow. |
 | `ayoubben18/ab-method` | Only the create-goal idea, adapted into `skills/create-goal` | The useful part is the durable `GOAL.md` contract. The AB-specific structure is replaced with spec-kit artifacts. |
 | `mattpocock/skills` | `tdd`, `to-prd`, `grill-with-docs`, `diagnose`, `zoom-out` | These fill planning, pressure-testing, debugging, and test-first gaps without becoming a second orchestration system. |
-| `garrytan/gstack` | `office-hours`, `plan-ceo-review`, `review`, `qa`, `qa-only`, `ship`, selected plan and design skills | These are the best product shaping, post-implementation, UI, QA, and ship loops. |
+| `garrytan/gstack` | Full gstack skill distribution plus full curated runtime sidecar | Product shaping, browser dogfooding, review, QA, ship, deploy, docs, gbrain, safety, context, and OpenClaw-specific loops. The router still keeps the default workflow narrow. |
 | `microsoft/playwright-cli` | `playwright-cli` skill | Token-efficient browser control and Playwright test workflow for agents. |
 | `lackeyjb/playwright-skill` | `playwright-skill` | General-purpose Playwright automation when scripted browser checks are better than CLI steps. |
 | `obra/superpowers` | `brainstorming` only | Strong design-first entrypoint for ambiguous creative/product work. |
@@ -47,7 +47,7 @@ Install into Claude:
 npm run install:claude
 ```
 
-The installer copies all installable skills into the selected skill root. It also installs a gstack compatibility runtime at `~/.claude/skills/gstack`, because upstream gstack skill files intentionally call helper scripts from that path.
+The installer copies all installable skills into the selected skill root. It also installs the full gstack runtime sidecar at `~/.claude/skills/gstack`, because upstream gstack skill files intentionally call helper scripts from that path.
 
 Install into a project-local Codex skill root:
 
@@ -64,7 +64,7 @@ After the pack is installed, use `install-merlin-skills` when you want an agent 
 2. Create or update spec-kit artifacts: `spec.md`, `plan.md`, `tasks.md`, plus optional `research.md`, `data-model.md`, `contracts/`, `quickstart.md`, and `checklists/`.
 3. Run `create-goal` to generate `specs/<feature>/GOAL.md` from those artifacts.
 4. Start Codex `/goal` with the generated `GOAL.md`.
-5. Use implementation skills only when routed: `office-hours`, `tdd`, `diagnose`, `review`, `qa`, `playwright-cli`, `ship`, or plan/design skills.
+5. Use implementation skills only when routed: the full gstack surface is available, but default work should still pick the smallest useful chain.
 6. Keep proof attached to the spec and goal: task checkmarks, tests, screenshots, QA reports, PR links, and release notes.
 
 ## Routing Rule
@@ -84,6 +84,17 @@ Typical routes:
 | UI plan | `plan-design-review -> design-shotgun/design-html -> playwright-cli` |
 | Ready to land | `review -> qa -> ship` |
 | Browser proof needed | `playwright-cli` first, `playwright-skill` for custom scripts |
+| Browser dogfood or screenshots | `browse` or `open-gstack-browser` |
+| Safety boundary needed | `careful`, `freeze`, `guard`, or `unfreeze` |
+| Health, perf, or canary | `health`, `benchmark`, or `canary` |
+| Context handoff | `context-save` or `context-restore` |
+| Docs or release docs | `document-generate` or `document-release` |
+| Deploy workflow | `setup-deploy -> land-and-deploy` |
+| GBrain workflow | `setup-gbrain -> sync-gbrain -> learn` |
+| PDF export | `make-pdf` |
+| Scraping flow | `scrape -> skillify` |
+| Outside model wrapper | `codex` or `claude` |
+| OpenClaw-specific request | `gstack-openclaw-*` |
 
 ## Repo Layout
 
@@ -93,7 +104,7 @@ skills/create-goal/        repo-owned spec-kit goal adapter
 skills/install-merlin-skills/
 skills/merlin-skills-routing/
 vendor-snapshots/          provenance snapshots and source archives
-gstack-runtime/            compatibility runtime for upstream gstack skills
+gstack-runtime/            full curated runtime sidecar for upstream gstack skills
 third_party/licenses/      upstream license copies
 docs/                      operating model and selection rationale
 scripts/                   installer and validators
@@ -115,6 +126,7 @@ npm test
 Validation checks:
 
 - every installable skill lives directly under `skills/<name>/SKILL.md`;
+- `merlin-skills-routing` mentions every installable skill by exact name;
 - no nested `SKILL.md` exists outside the allowed runtime surface;
 - upstream manifest paths exist;
 - license files exist;

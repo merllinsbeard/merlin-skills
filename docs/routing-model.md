@@ -53,6 +53,8 @@ Use `review` for code review, `qa` for test-fix-verify, and `qa-only` when the u
 
 Use `playwright-cli` for token-efficient browser interaction and Playwright test work. Use `playwright-skill` when a custom script is faster or more repeatable.
 
+Use gstack browser/runtime skills when their specific loop is the shortest path: `browse` or `open-gstack-browser` for dogfooding, `health`/`benchmark`/`canary` for quality checks, `careful`/`freeze`/`guard` for safety boundaries, `context-save`/`context-restore` for handoff, `document-generate`/`document-release` for docs, `setup-deploy`/`land-and-deploy` for deploy, `setup-gbrain`/`sync-gbrain`/`learn` for gbrain, `make-pdf` for PDFs, `scrape`/`skillify` for browser extraction, and `codex`/`claude` for outside model review.
+
 ### Shipping
 
 Use `ship` only after implementation and verification evidence are ready.

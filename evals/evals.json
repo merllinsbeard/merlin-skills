@@ -54,6 +54,33 @@
         "project .codex/skills is targeted",
         "AGENTS.md receives or refreshes one Merlin Skills block"
       ]
+    },
+    {
+      "name": "route_browser_dogfood_to_gstack_browse",
+      "input": "User asks to dogfood a local web app, click through the flow, and capture screenshots.",
+      "expected": [
+        "browse or open-gstack-browser is selected",
+        "playwright-cli remains available for generated tests",
+        "review and ship are not selected before browser evidence exists"
+      ]
+    },
+    {
+      "name": "route_gbrain_setup_to_full_gstack",
+      "input": "User asks to set up gbrain for this repo and sync learnings.",
+      "expected": [
+        "setup-gbrain is selected before sync-gbrain",
+        "learn is reserved for reading or managing captured learnings",
+        "create-goal is not selected because this is runtime setup"
+      ]
+    },
+    {
+      "name": "routing_inventory_covers_every_skill",
+      "input": "Repo has an installed skill under skills/<name>/SKILL.md.",
+      "expected": [
+        "merlin-skills-routing Complete Skill Inventory mentions that skill by exact name",
+        "validate-layout fails if any installed skill is missing from the router",
+        "source packs are represented, including spec-kit, AB Method, Matt Pocock, gstack, Playwright, Superpowers, and Merlin-owned meta skills"
+      ]
     }
   ]
 }
