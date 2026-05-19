@@ -36,16 +36,18 @@ Then continue with the next skill or task. Do not stop after routing unless a re
 For new autonomous web coding:
 
 ```text
-brainstorming or spec-kit -> create-goal -> /goal -> tdd -> review -> qa -> playwright-cli -> ship
+office-hours or brainstorming or spec-kit -> create-goal -> /goal -> tdd -> review -> qa -> playwright-cli -> ship
 ```
 
-Use `brainstorming` only when the idea is still ambiguous or creative. If the spec is already clear, skip it.
+Use `office-hours` when the user is testing a product idea, wedge, or whether something is worth building. Use `brainstorming` when the idea is creative/UX-heavy but not a founder/product viability question. If the spec is already clear, skip both.
 
 ## Routing Matrix
 
 | Signal | Route |
 | --- | --- |
-| "What should we build?", unclear product shape, new UI idea | `brainstorming` first |
+| Product idea, early concept, "is this worth building?" | `office-hours` first |
+| Concrete product plan needs founder/scope pressure | `plan-ceo-review` |
+| Ambiguous creative feature or new UI idea | `brainstorming` first |
 | Existing chat context needs a PRD | `to-prd` |
 | Plan needs pressure against docs, terms, ADRs | `grill-with-docs` |
 | Need to understand an unfamiliar code area | `zoom-out` |
@@ -54,7 +56,7 @@ Use `brainstorming` only when the idea is still ambiguous or creative. If the sp
 | Broken behavior, flaky tests, performance regression | `diagnose` then `tdd` |
 | UI/design plan before code | `plan-design-review` |
 | System/architecture plan before code | `plan-eng-review` |
-| Scope, ambition, founder judgment | `plan-ceo-review` |
+| Scope, ambition, founder judgment after plan exists | `plan-ceo-review` |
 | Developer-facing API/CLI/docs workflow | `plan-devex-review` |
 | Implemented diff needs critique | `review` |
 | Web app needs bug hunt and fixes | `qa` |
@@ -83,4 +85,3 @@ If these are not true, route to the missing step instead of launching `/goal`.
 - Keep generated proof next to the feature or in the repo's existing evidence location.
 - Do not rewrite upstream skills copied into this repo.
 - The only repo-owned adaptation of an upstream process is `create-goal`.
-

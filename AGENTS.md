@@ -9,7 +9,7 @@ For any non-trivial task, load `skills/merlin-skills-routing/SKILL.md` before se
 The default sequence is:
 
 ```text
-route -> spec -> create-goal -> /goal -> review -> qa -> browser proof -> ship
+route -> office-hours when useful -> spec -> create-goal -> /goal -> review -> qa -> browser proof -> ship
 ```
 
 Use the smallest skill chain that covers the work. Do not load every skill by default.
@@ -45,7 +45,8 @@ Do not start long autonomous work from a loose chat summary when a spec director
 
 | Need | Preferred skill route |
 | --- | --- |
-| Ambiguous product or design idea | `brainstorming` |
+| Product idea, early concept, or "is this worth building?" | `office-hours` |
+| Ambiguous creative feature | `brainstorming` |
 | Convert conversation to PRD | `to-prd` |
 | Stress-test assumptions against docs | `grill-with-docs` |
 | Understand a broad area | `zoom-out` |
@@ -59,7 +60,7 @@ Do not start long autonomous work from a loose chat summary when a spec director
 | Custom Playwright automation | `playwright-skill` |
 | UI/design plan review | `plan-design-review` |
 | Engineering plan review | `plan-eng-review` |
-| Founder/product scope review | `plan-ceo-review` |
+| Founder/product scope review after a concrete plan exists | `plan-ceo-review` |
 | Developer-experience review | `plan-devex-review` |
 | Tune question sensitivity | `plan-tune` |
 | Ship PR/release | `ship` |
@@ -88,4 +89,3 @@ find /tmp/merlin-skills-root -maxdepth 2 -name SKILL.md | sort
 ```
 
 Do not claim the package is ready until validation passes.
-

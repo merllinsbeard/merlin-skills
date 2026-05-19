@@ -27,7 +27,15 @@
         "playwright-cli is used for browser proof",
         "ship is last"
       ]
+    },
+    {
+      "name": "route_product_idea_to_office_hours",
+      "input": "User has an early product idea and asks whether it is worth building.",
+      "expected": [
+        "office-hours is selected before plan-ceo-review",
+        "plan-ceo-review is reserved for concrete plan critique",
+        "create-goal is not used until spec-kit artifacts exist"
+      ]
     }
   ]
 }
-

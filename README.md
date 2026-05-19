@@ -4,7 +4,7 @@
 
 Merlin Skills is an open-source skill pack for long-running Codex web coding work. It combines a narrow set of proven upstream skills into one operating model:
 
-`spec-kit -> create-goal -> /goal -> review -> qa -> playwright proof -> ship`
+`office-hours -> spec-kit -> create-goal -> /goal -> review -> qa -> playwright proof -> ship`
 
 The bias is simple: write the specification once, convert it into a durable goal contract, then let Codex work against that contract with the right specialist skill at each phase.
 
@@ -15,7 +15,7 @@ The bias is simple: write the specification once, convert it into a durable goal
 | `github/spec-kit` | Full source snapshot archive | Canonical `spec.md`, `plan.md`, `tasks.md`, constitution, and spec-driven implementation flow. |
 | `ayoubben18/ab-method` | Only the create-goal idea, adapted into `skills/create-goal` | The useful part is the durable `GOAL.md` contract. The AB-specific structure is replaced with spec-kit artifacts. |
 | `mattpocock/skills` | `tdd`, `to-prd`, `grill-with-docs`, `diagnose`, `zoom-out` | These fill planning, pressure-testing, debugging, and test-first gaps without becoming a second orchestration system. |
-| `garrytan/gstack` | `review`, `qa`, `qa-only`, `ship`, selected plan and design skills | These are the best post-implementation gates and UI/product review loops. |
+| `garrytan/gstack` | `office-hours`, `plan-ceo-review`, `review`, `qa`, `qa-only`, `ship`, selected plan and design skills | These are the best product shaping, post-implementation, UI, QA, and ship loops. |
 | `microsoft/playwright-cli` | `playwright-cli` skill | Token-efficient browser control and Playwright test workflow for agents. |
 | `lackeyjb/playwright-skill` | `playwright-skill` | General-purpose Playwright automation when scripted browser checks are better than CLI steps. |
 | `obra/superpowers` | `brainstorming` only | Strong design-first entrypoint for ambiguous creative/product work. |
@@ -50,7 +50,7 @@ The installer copies all installable skills into the selected skill root. It als
 2. Create or update spec-kit artifacts: `spec.md`, `plan.md`, `tasks.md`, plus optional `research.md`, `data-model.md`, `contracts/`, `quickstart.md`, and `checklists/`.
 3. Run `create-goal` to generate `specs/<feature>/GOAL.md` from those artifacts.
 4. Start Codex `/goal` with the generated `GOAL.md`.
-5. Use implementation skills only when routed: `tdd`, `diagnose`, `review`, `qa`, `playwright-cli`, `ship`, or design-plan skills.
+5. Use implementation skills only when routed: `office-hours`, `tdd`, `diagnose`, `review`, `qa`, `playwright-cli`, `ship`, or plan/design skills.
 6. Keep proof attached to the spec and goal: task checkmarks, tests, screenshots, QA reports, PR links, and release notes.
 
 ## Routing Rule
@@ -61,7 +61,8 @@ Typical routes:
 
 | Situation | Route |
 | --- | --- |
-| Ambiguous feature idea | `brainstorming -> spec-kit -> create-goal` |
+| Product idea or "is this worth building?" | `office-hours -> plan-ceo-review -> spec-kit -> create-goal` |
+| Ambiguous creative feature | `brainstorming -> spec-kit -> create-goal` |
 | Existing docs but no goal | `create-goal` |
 | Implementation from spec | `merlin-skills-routing -> tdd -> /goal` |
 | Hard bug | `diagnose -> tdd -> qa` |

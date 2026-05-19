@@ -8,6 +8,7 @@ Do not start a long autonomous loop from a loose chat summary. Route the work, b
 
 ```text
 brainstorming
+  -> office-hours for product viability when needed
   -> spec-kit artifacts
   -> create-goal
   -> Codex /goal
@@ -24,7 +25,9 @@ Most work should skip some steps. The router chooses the smallest useful chain.
 
 ### Discovery
 
-Use `brainstorming` when the user has energy and direction but not a crisp feature shape. Use `zoom-out` when the codebase area is unfamiliar.
+Use `office-hours` when the user is shaping a product idea, testing whether something is worth building, or choosing a wedge. Use `brainstorming` when the work is creative or UX-heavy but not primarily a viability question. Use `zoom-out` when the codebase area is unfamiliar.
+
+Use `plan-ceo-review` after a concrete plan exists and needs founder/scope pressure.
 
 ### Specification
 
@@ -51,4 +54,3 @@ Use `playwright-cli` for token-efficient browser interaction and Playwright test
 ### Shipping
 
 Use `ship` only after implementation and verification evidence are ready.
-

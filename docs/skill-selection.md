@@ -36,6 +36,7 @@ Included:
 - `qa`
 - `qa-only`
 - `ship`
+- `office-hours`
 - `design-consultation`
 - `design-html`
 - `design-review`
@@ -46,7 +47,7 @@ Included:
 - `plan-eng-review`
 - `plan-tune`
 
-These are strong gates around planning, UI quality, QA, and shipping. They sit after spec/goal rather than replacing spec/goal.
+`office-hours` is the product-shaping front door for new ideas and "is this worth building?" questions. `plan-ceo-review` then challenges scope and ambition once a concrete plan exists. The rest are strong gates around planning, UI quality, QA, and shipping. They sit around spec/goal rather than replacing spec/goal.
 
 Not included as primary user skills: broad gstack orchestration, deploy setup, canary, benchmarking, browser cookie setup, OpenClaw/GBrain setup, and unrelated maintenance skills. Those are useful in their own context, but they widen this package beyond the spec-to-ship loop.
 
@@ -79,4 +80,3 @@ These were deliberately kept out of the primary package:
 - memory systems as source of truth.
 
 They can be useful optional tools, but they should not become the default web-coding loop.
-

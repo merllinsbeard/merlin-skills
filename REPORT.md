@@ -7,7 +7,7 @@ Date: 2026-05-19
 Created a production-quality open-source repository for a narrow autonomous web-coding stack:
 
 ```text
-spec-kit -> create-goal -> Codex /goal -> review -> qa -> Playwright proof -> ship
+office-hours -> spec-kit -> create-goal -> Codex /goal -> review -> qa -> Playwright proof -> ship
 ```
 
 The repository includes:
@@ -65,6 +65,7 @@ Included as user-facing skills:
 - `qa`
 - `qa-only`
 - `ship`
+- `office-hours`
 - `design-consultation`
 - `design-html`
 - `design-review`
@@ -79,9 +80,10 @@ Included as compatibility runtime:
 
 - helper scripts under `gstack-runtime/bin`, `scripts`, and `lib`;
 - `browse` and `design` build sources;
-- runtime-only `office-hours`, `document-release`, and `gstack-upgrade` shims because selected gstack skills reference them.
+- runtime-only `document-release` and `gstack-upgrade` shims because selected gstack skills reference them.
+- a runtime copy of `office-hours` for hardcoded gstack paths, while also exposing it as a top-level installable skill.
 
-Why included: gstack provides strong review, QA, design, and ship gates after Codex has implemented against a goal.
+Why included: gstack provides product shaping through `office-hours`, founder/scope review through `plan-ceo-review`, and strong review, QA, design, and ship gates after Codex has implemented against a goal.
 
 Why not fully included: full gstack is a wider product/runtime with browser, deploy, benchmark, setup, GBrain, and control-plane concerns. This repo keeps the parts that strengthen the web-coding conveyor.
 
@@ -127,4 +129,4 @@ npm test
 SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN_SKIP_GSTACK_BUILD=1 bash scripts/install-local.sh
 ```
 
-The temp install produced 23 installable skills and restored the gstack runtime shims without touching the user's real global skill roots.
+The temp install produced 24 installable skills and restored the gstack runtime shims without touching the user's real global skill roots.

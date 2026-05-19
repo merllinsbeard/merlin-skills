@@ -31,7 +31,7 @@ This repository contains repo-owned files under the MIT license plus selected up
 - Repository: https://github.com/garrytan/gstack
 - Commit: `026751ea2012ec7cbedc149ba615929a20026501`
 - License: MIT
-- Included skills: `review`, `qa`, `qa-only`, `ship`, design skills, plan review skills, and runtime helpers needed by those skills.
+- Included skills: `office-hours`, `review`, `qa`, `qa-only`, `ship`, design skills, plan review skills, and runtime helpers needed by those skills.
 - License copy: `third_party/licenses/gstack.LICENSE`
 
 ## microsoft/playwright-cli
@@ -57,4 +57,3 @@ This repository contains repo-owned files under the MIT license plus selected up
 - License: MIT
 - Included skill: `brainstorming`
 - License copy: `third_party/licenses/superpowers.LICENSE`
-

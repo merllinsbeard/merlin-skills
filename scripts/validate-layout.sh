@@ -30,6 +30,7 @@ review
 qa
 qa-only
 ship
+office-hours
 design-consultation
 design-html
 design-review

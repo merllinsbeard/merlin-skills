@@ -52,8 +52,9 @@
       "commit": "026751ea2012ec7cbedc149ba615929a20026501",
       "license": "MIT",
       "license_file": "third_party/licenses/gstack.LICENSE",
-      "purpose": "Review, QA, design, plan review, ship, and compatibility runtime.",
+      "purpose": "Office hours, review, QA, design, plan review, ship, and compatibility runtime.",
       "copied_paths": [
+        "skills/office-hours",
         "skills/review",
         "skills/qa",
         "skills/qa-only",
@@ -105,4 +106,3 @@
     }
   ]
 }
-

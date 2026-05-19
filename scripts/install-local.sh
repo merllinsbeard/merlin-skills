@@ -10,6 +10,7 @@ review
 qa
 qa-only
 ship
+office-hours
 design-consultation
 design-html
 design-review
@@ -81,4 +82,3 @@ fi
 
 echo "Installed Merlin Skills into: $SKILL_ROOT"
 echo "Installed gstack compatibility runtime into: $GSTACK_ROOT"
-
