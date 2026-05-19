@@ -1,0 +1,15 @@
+name: merlin-skills
+version: 0.1.0
+description: Spec-first, skill-first, goal-first coding skill pack.
+entrypoint_skill: merlin-skills-routing
+required_first_step_for:
+  - non_trivial_tasks
+  - codex_goal
+workflow:
+  - route
+  - spec
+  - create_goal
+  - codex_goal
+  - verify
+  - ship
+

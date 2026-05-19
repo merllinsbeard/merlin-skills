@@ -1,0 +1,82 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" role="img" aria-labelledby="title desc">
+  <title id="title">Merlin Skills routing flow</title>
+  <desc id="desc">A diagram showing spec-kit flowing into create-goal, Codex goal execution, verification, and shipping.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#101820"/>
+      <stop offset="0.52" stop-color="#17232e"/>
+      <stop offset="1" stop-color="#24312a"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#67e8f9"/>
+      <stop offset="0.5" stop-color="#a3e635"/>
+      <stop offset="1" stop-color="#fbbf24"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="14" stdDeviation="18" flood-color="#000" flood-opacity="0.28"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="520" fill="url(#bg)"/>
+  <path d="M80 390 C210 300 300 420 445 326 C592 230 690 284 810 194 C940 98 1016 146 1120 82" fill="none" stroke="url(#accent)" stroke-width="6" stroke-linecap="round" opacity="0.75"/>
+  <g fill="none" stroke="#ffffff" stroke-opacity="0.08" stroke-width="1">
+    <path d="M80 120 H1120"/>
+    <path d="M80 220 H1120"/>
+    <path d="M80 320 H1120"/>
+    <path d="M210 80 V440"/>
+    <path d="M420 80 V440"/>
+    <path d="M630 80 V440"/>
+    <path d="M840 80 V440"/>
+    <path d="M1050 80 V440"/>
+  </g>
+  <text x="80" y="78" fill="#f8fafc" font-family="Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, sans-serif" font-size="46" font-weight="740" letter-spacing="0">Merlin Skills</text>
+  <text x="82" y="116" fill="#cbd5e1" font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="18">Spec-first, skill-first, goal-first web coding loop for Codex.</text>
+  <g filter="url(#shadow)" font-family="Inter, ui-sans-serif, system-ui, sans-serif">
+    <g transform="translate(80 170)">
+      <rect width="180" height="116" rx="8" fill="#f8fafc"/>
+      <text x="24" y="38" fill="#0f172a" font-size="22" font-weight="760">spec-kit</text>
+      <text x="24" y="68" fill="#334155" font-size="15">spec.md</text>
+      <text x="24" y="90" fill="#334155" font-size="15">plan.md + tasks.md</text>
+    </g>
+    <g transform="translate(306 170)">
+      <rect width="180" height="116" rx="8" fill="#ecfeff"/>
+      <text x="24" y="38" fill="#0f172a" font-size="22" font-weight="760">create-goal</text>
+      <text x="24" y="68" fill="#334155" font-size="15">GOAL.md</text>
+      <text x="24" y="90" fill="#334155" font-size="15">stop condition</text>
+    </g>
+    <g transform="translate(532 170)">
+      <rect width="180" height="116" rx="8" fill="#f0fdf4"/>
+      <text x="24" y="38" fill="#0f172a" font-size="22" font-weight="760">Codex /goal</text>
+      <text x="24" y="68" fill="#334155" font-size="15">autonomous loop</text>
+      <text x="24" y="90" fill="#334155" font-size="15">task checkmarks</text>
+    </g>
+    <g transform="translate(758 170)">
+      <rect width="180" height="116" rx="8" fill="#fff7ed"/>
+      <text x="24" y="38" fill="#0f172a" font-size="22" font-weight="760">proof gates</text>
+      <text x="24" y="68" fill="#334155" font-size="15">review + QA</text>
+      <text x="24" y="90" fill="#334155" font-size="15">Playwright</text>
+    </g>
+    <g transform="translate(984 170)">
+      <rect width="136" height="116" rx="8" fill="#fefce8"/>
+      <text x="24" y="38" fill="#0f172a" font-size="22" font-weight="760">ship</text>
+      <text x="24" y="68" fill="#334155" font-size="15">PR</text>
+      <text x="24" y="90" fill="#334155" font-size="15">release proof</text>
+    </g>
+  </g>
+  <g fill="none" stroke="#dbeafe" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M268 228 H294"/>
+    <path d="M286 220 L294 228 L286 236"/>
+    <path d="M494 228 H520"/>
+    <path d="M512 220 L520 228 L512 236"/>
+    <path d="M720 228 H746"/>
+    <path d="M738 220 L746 228 L738 236"/>
+    <path d="M946 228 H972"/>
+    <path d="M964 220 L972 228 L964 236"/>
+  </g>
+  <g font-family="Inter, ui-sans-serif, system-ui, sans-serif" font-size="16">
+    <rect x="80" y="344" width="1040" height="82" rx="8" fill="#0f172a" opacity="0.72"/>
+    <text x="108" y="378" fill="#e2e8f0" font-weight="700">Mandatory first step:</text>
+    <text x="300" y="378" fill="#bae6fd">merlin-skills-routing</text>
+    <text x="108" y="406" fill="#cbd5e1">Choose the smallest skill chain, bind work to the active spec, then execute with evidence.</text>
+  </g>
+</svg>
+

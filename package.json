@@ -1,0 +1,26 @@
+{
+  "name": "merlin-skills",
+  "version": "0.1.0",
+  "private": false,
+  "description": "A spec-first, skill-first, goal-first skill pack for autonomous web coding with Codex.",
+  "license": "MIT",
+  "type": "module",
+  "scripts": {
+    "validate": "bash scripts/validate-layout.sh && node scripts/validate-manifest.mjs",
+    "test": "npm run validate",
+    "install:codex": "SKILL_ROOT=$HOME/.codex/skills bash scripts/install-local.sh",
+    "install:claude": "SKILL_ROOT=$HOME/.claude/skills bash scripts/install-local.sh"
+  },
+  "keywords": [
+    "codex",
+    "skills",
+    "spec-kit",
+    "goal",
+    "playwright",
+    "agents"
+  ],
+  "engines": {
+    "node": ">=20"
+  }
+}
+

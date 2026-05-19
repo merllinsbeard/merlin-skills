@@ -1,0 +1,70 @@
+# AB Method Structure Index
+# Where AB Method workflows read from and write to.
+
+project_structure:
+  # Root-level domain documentation (per domain-model + ubiquitous-language skills)
+  root:
+    files:
+      - UBIQUITOUS_LANGUAGE.md   # flat glossary (ubiquitous-language skill format)
+      - CONTEXT.md               # bounded-context overview (domain-model skill format)
+      # OR, for multi-context repos:
+      # - CONTEXT-MAP.md         # lists contexts and their relationships
+      # with per-context CONTEXT.md files inside src/<context>/
+
+  docs:
+    architecture:
+      files:
+        - tech-stack.md          # stack + entry points + external services + constraints + testing
+        - frontend-patterns.md
+        - backend-patterns.md
+
+    adr:
+      # Created lazily by /domain-model when the first ADR is needed.
+      # Sequential numbering: 0001-slug.md, 0002-slug.md, ...
+      files: []
+
+    tasks:
+      # Example task structure — progress-tracker.md is the SINGLE source of
+      # truth per task. Missions are one-line entries inside it; no separate
+      # mission files. Each mission runs through the `tdd` skill.
+      todo-table-creation:
+        files:
+          - progress-tracker.md
+        folders:
+          - sub-agents-outputs/   # only created when a subagent runs
+
+    goals:
+      # Example goal structure — produced by /create-goal. goal.md is the
+      # prompt pasted into an autonomous `/goal` loop; progress-tracker.md
+      # is the checklist + discoveries log the loop maintains while running.
+      add-dark-mode:
+        files:
+          - goal.md
+          - progress-tracker.md
+
+# Workflow output destinations
+workflow_outputs:
+  analyze-project:
+    - UBIQUITOUS_LANGUAGE.md
+    - CONTEXT.md
+    - docs/architecture/tech-stack.md
+    - docs/architecture/frontend-patterns.md
+    - docs/architecture/backend-patterns.md
+  analyze-frontend: docs/architecture/frontend-patterns.md
+  analyze-backend: docs/architecture/backend-patterns.md
+  domain-model:
+    - CONTEXT.md          # refined inline during the grilling session
+    - docs/adr/           # ADRs created lazily
+  create-task: docs/tasks/[task-name]/progress-tracker.md
+  extend-task: docs/tasks/[task-name]/progress-tracker.md
+  resume-task: docs/tasks/[task-name]/progress-tracker.md
+  create-goal:
+    - docs/goals/[goal-name]/goal.md
+    - docs/goals/[goal-name]/progress-tracker.md
+  extend-goal:
+    - docs/goals/[goal-name]/goal.md   # updated in place; progress-tracker.md carries forward
+
+# Inputs that downstream workflows should read for domain context
+domain_inputs:
+  - UBIQUITOUS_LANGUAGE.md
+  - CONTEXT.md

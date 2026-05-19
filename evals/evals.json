@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "cases": [
+    {
+      "name": "route_existing_spec_to_goal",
+      "input": "Feature directory has spec.md, plan.md, and tasks.md. User asks to start /goal.",
+      "expected": [
+        "merlin-skills-routing runs first",
+        "create-goal is selected",
+        "GOAL.md references spec-kit artifacts"
+      ]
+    },
+    {
+      "name": "block_unclear_goal",
+      "input": "spec.md contains [NEEDS CLARIFICATION]. User asks to run /goal anyway.",
+      "expected": [
+        "create-goal refuses",
+        "blocking clarification is reported",
+        "/goal is not launched"
+      ]
+    },
+    {
+      "name": "web_feature_verification",
+      "input": "A UI feature has been implemented and needs proof before ship.",
+      "expected": [
+        "review or qa is routed",
+        "playwright-cli is used for browser proof",
+        "ship is last"
+      ]
+    }
+  ]
+}
+
