@@ -19,6 +19,7 @@ EOF
 
 required_skills="
 merlin-skills-routing
+install-merlin-skills
 create-goal
 brainstorming
 tdd

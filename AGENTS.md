@@ -45,6 +45,7 @@ Do not start long autonomous work from a loose chat summary when a spec director
 
 | Need | Preferred skill route |
 | --- | --- |
+| Install or refresh Merlin Skills globally or for a project | `install-merlin-skills` |
 | Product idea, early concept, or "is this worth building?" | `office-hours` |
 | Ambiguous creative feature | `brainstorming` |
 | Convert conversation to PRD | `to-prd` |

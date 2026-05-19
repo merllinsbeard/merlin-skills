@@ -22,6 +22,33 @@ npm run install:claude
 
 This copies `skills/*` into `~/.claude/skills`.
 
+## Install Into Both Global Roots
+
+```bash
+SKILL_ROOT="$HOME/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+SKILL_ROOT="$HOME/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+```
+
+This is the default route used by `install-merlin-skills` when the user asks for a global install without naming Codex or Claude.
+
+## Install Into A Project
+
+Project-local Codex:
+
+```bash
+PROJECT_ROOT=/path/to/project
+SKILL_ROOT="$PROJECT_ROOT/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+```
+
+Project-local Claude:
+
+```bash
+PROJECT_ROOT=/path/to/project
+SKILL_ROOT="$PROJECT_ROOT/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+```
+
+Project-local installs should also add a compact `## Merlin Skills` block to the project's `AGENTS.md` for Codex or `CLAUDE.md` for Claude. The `install-merlin-skills` meta skill owns that instruction-file update.
+
 ## gstack Compatibility Runtime
 
 Selected gstack skills expect helpers at:
@@ -44,3 +71,5 @@ MERLIN_SKIP_GSTACK_BUILD=1 npm run install:codex
 SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN_SKIP_GSTACK_BUILD=1 bash scripts/install-local.sh
 find /tmp/merlin-skills-root -maxdepth 2 -name SKILL.md | sort
 ```
+
+This release should produce 25 installable `SKILL.md` files in the selected skill root.

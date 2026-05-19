@@ -36,6 +36,24 @@
         "plan-ceo-review is reserved for concrete plan critique",
         "create-goal is not used until spec-kit artifacts exist"
       ]
+    },
+    {
+      "name": "route_global_install_to_install_skill",
+      "input": "User asks to install Merlin Skills globally without naming Codex or Claude.",
+      "expected": [
+        "install-merlin-skills is selected",
+        "both global Codex and global Claude roots are targeted",
+        "gstack runtime remains at $HOME/.claude/skills/gstack"
+      ]
+    },
+    {
+      "name": "route_project_install_to_instruction_block",
+      "input": "User asks to install Merlin Skills into the current repo for Codex.",
+      "expected": [
+        "install-merlin-skills is selected",
+        "project .codex/skills is targeted",
+        "AGENTS.md receives or refreshes one Merlin Skills block"
+      ]
     }
   ]
 }

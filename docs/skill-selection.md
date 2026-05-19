@@ -8,6 +8,15 @@ write spec once -> generate goal -> let Codex execute -> prove -> ship
 
 ## Included
 
+### Merlin-owned meta skills
+
+Included:
+
+- `merlin-skills-routing`: mandatory smallest-chain router before non-trivial `/goal` work.
+- `install-merlin-skills`: installer router for global Codex/Claude roots and project-local `.codex/skills` or `.claude/skills` roots.
+
+These are repo-owned because they define how this distribution is selected and installed. They are not upstream snapshots.
+
 ### github/spec-kit
 
 Included completely as a source archive. It provides the canonical spec-driven structure and should remain the main planning substrate.

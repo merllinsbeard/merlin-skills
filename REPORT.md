@@ -16,6 +16,7 @@ The repository includes:
 - `assets/merlin-skills-cover.png`, generated with `imagegen` using `image-taste-frontend` art direction for the public README.
 - `AGENTS.md` with the skill-first and `/goal`-first routing contract.
 - `skills/merlin-skills-routing` as the mandatory meta-routing skill.
+- `skills/install-merlin-skills` as the global/project installation meta skill.
 - `skills/create-goal` as the only adapted upstream workflow.
 - Curated upstream skills copied as snapshots.
 - `vendor-snapshots/manifest.json` with source SHAs and licenses.
@@ -129,4 +130,14 @@ npm test
 SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN_SKIP_GSTACK_BUILD=1 bash scripts/install-local.sh
 ```
 
-The temp install produced 24 installable skills and restored the gstack runtime shims without touching the user's real global skill roots.
+As of v0.1.2, the temp install produces 25 installable skills and restores the gstack runtime shims without touching the user's real global skill roots.
+
+## v0.1.2 Update
+
+Added `install-merlin-skills`, a repo-owned setup meta skill modeled after Matt Pocock's setup pattern. It chooses global Codex, global Claude, both global, project Codex, project Claude, or custom roots, then delegates the actual copy/build work to `scripts/install-local.sh`.
+
+Why included: installation is now part of the public operating model. The package can be installed globally for personal runtime use or project-locally when a repository should carry its own skill surface.
+
+Why repo-owned: no upstream skill owns Merlin Skills distribution, gstack runtime compatibility, or the project instruction block policy.
+
+The expected temp install count is 25 installable skills.

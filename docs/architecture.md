@@ -29,7 +29,7 @@ Selected gstack skills are useful, but they are not standalone markdown prompts.
 Merlin Skills owns only:
 
 - `merlin-skills-routing`
+- `install-merlin-skills`
 - `create-goal`
 
 Everything else is copied from upstream and should stay close to upstream unless a future release explicitly declares an adaptation.
-

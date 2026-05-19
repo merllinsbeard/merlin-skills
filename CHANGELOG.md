@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 - 2026-05-19
+
+- Added repo-owned `install-merlin-skills` meta skill for global Codex/Claude and project-local installs.
+- Updated routing and docs so install/setup/refresh requests route to `install-merlin-skills`.
+- Updated validation and release notes for 25 installable skills.
+
 ## 0.1.1 - 2026-05-19
 
 - Promoted gstack `office-hours` to a top-level installable skill.

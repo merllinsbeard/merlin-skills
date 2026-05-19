@@ -45,6 +45,7 @@ Use `office-hours` when the user is testing a product idea, wedge, or whether so
 
 | Signal | Route |
 | --- | --- |
+| Install, update, refresh, or project-local setup for Merlin Skills | `install-merlin-skills` |
 | Product idea, early concept, "is this worth building?" | `office-hours` first |
 | Concrete product plan needs founder/scope pressure | `plan-ceo-review` |
 | Ambiguous creative feature or new UI idea | `brainstorming` first |

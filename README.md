@@ -22,6 +22,11 @@ The bias is simple: write the specification once, convert it into a durable goal
 
 All upstream skills are copied as upstream snapshots. This repo does not rewrite upstream skills. The only adapted skill is `skills/create-goal`, because it intentionally converts AB Method's goal creation idea into a spec-kit-native Codex goal contract.
 
+Repo-owned meta skills:
+
+- `merlin-skills-routing`: chooses the smallest useful skill chain before `/goal`.
+- `install-merlin-skills`: installs or refreshes this pack globally or into a project-local skill root.
+
 ## Quick Start
 
 ```bash
@@ -44,6 +49,15 @@ npm run install:claude
 
 The installer copies all installable skills into the selected skill root. It also installs a gstack compatibility runtime at `~/.claude/skills/gstack`, because upstream gstack skill files intentionally call helper scripts from that path.
 
+Install into a project-local Codex skill root:
+
+```bash
+PROJECT_ROOT=/path/to/project
+SKILL_ROOT="$PROJECT_ROOT/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+```
+
+After the pack is installed, use `install-merlin-skills` when you want an agent to choose between global Codex, global Claude, both global, project-local Codex, project-local Claude, or custom skill roots.
+
 ## Core Workflow
 
 1. Run `merlin-skills-routing` first for any non-trivial project or `/goal`.
@@ -61,6 +75,7 @@ Typical routes:
 
 | Situation | Route |
 | --- | --- |
+| Install or refresh Merlin Skills | `install-merlin-skills` |
 | Product idea or "is this worth building?" | `office-hours -> plan-ceo-review -> spec-kit -> create-goal` |
 | Ambiguous creative feature | `brainstorming -> spec-kit -> create-goal` |
 | Existing docs but no goal | `create-goal` |
@@ -75,6 +90,7 @@ Typical routes:
 ```text
 skills/                    installable skills
 skills/create-goal/        repo-owned spec-kit goal adapter
+skills/install-merlin-skills/
 skills/merlin-skills-routing/
 vendor-snapshots/          provenance snapshots and source archives
 gstack-runtime/            compatibility runtime for upstream gstack skills

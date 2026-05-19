@@ -21,6 +21,8 @@ brainstorming
 
 Most work should skip some steps. The router chooses the smallest useful chain.
 
+Installation and refresh requests are outside the spec-to-ship conveyor. Route those to `install-merlin-skills`.
+
 ## Phase Rules
 
 ### Discovery
