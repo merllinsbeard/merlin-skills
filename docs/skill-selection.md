@@ -39,11 +39,14 @@ Not included from the same repository when it duplicates the selected route or d
 
 ### gstack
 
-Included fully: generic gstack skills, `gstack-codex`/`gstack-claude` wrappers, the root `gstack` browser skill, OpenClaw-specific gstack skills, and the curated runtime sidecar those skills need.
+Included only as adapted minimal gates:
 
-Gstack-derived user-facing skills install with the `gstack-` prefix. `gstack-office-hours` is the product-shaping front door for new ideas and "is this worth building?" questions. `gstack-plan-ceo-review` then challenges scope and ambition once a concrete plan exists. The broader gstack surface covers browser dogfooding, review, QA, docs, deploy, benchmarking, canary, safety guards, context save/restore, PDF generation, scraping, GBrain setup/sync, and OpenClaw-specific review loops.
+- `gstack-qa`
+- `gstack-ship`
 
-Full availability does not make every gstack skill primary. The router keeps the default spec-to-goal conveyor narrow and selects the extra gstack skills only when they are the smallest useful tool for the job.
+Why included: this stack needs a strong post-implementation QA gate and a final ship gate. The rest of gstack is too much process for the core Merlin loop.
+
+Not included: office hours, CEO review, browser daemon, deploy helpers, GBrain, benchmark/canary, OpenClaw-specific workflows, model wrappers, PDF, scraping, context save/restore, and full review-army flows. Those are useful in standalone gstack, but they pull the package away from the spec-kit -> create-goal -> `/goal` center.
 
 ### Playwright
 

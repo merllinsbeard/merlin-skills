@@ -7,14 +7,12 @@ Do not start a long autonomous loop from a loose chat summary. Route the work, b
 ## Standard Conveyor
 
 ```text
-brainstorming
-  -> office-hours for product viability when needed
+brainstorming or to-prd
   -> spec-kit artifacts
   -> create-goal
   -> Codex /goal
   -> tdd / diagnose
-  -> gstack-review
-  -> gstack-qa / gstack-qa-only
+  -> gstack-qa
   -> playwright-cli / playwright-skill
   -> gstack-ship
 ```
@@ -27,9 +25,7 @@ Installation and refresh requests are outside the spec-to-ship conveyor. Route t
 
 ### Discovery
 
-Use `gstack-office-hours` when the user is shaping a product idea, testing whether something is worth building, or choosing a wedge. Use `brainstorming` when the work is creative or UX-heavy but not primarily a viability question. Use `zoom-out` when the codebase area is unfamiliar.
-
-Use `gstack-plan-ceo-review` after a concrete plan exists and needs founder/scope pressure.
+Use `brainstorming` when the work is ambiguous, creative, product-shaped, or UX-heavy. Use `to-prd` when conversation context needs to become a concrete product requirement. Use `zoom-out` when the codebase area is unfamiliar.
 
 ### Specification
 
@@ -49,12 +45,10 @@ Use `tdd` for feature work and bug fixes where tests can drive the change. Use `
 
 ### Verification
 
-Use `gstack-review` for code review, `gstack-qa` for test-fix-verify, and `gstack-qa-only` when the user asked for a report without fixes.
+Use `gstack-qa` after implementation or before ship. It should read the active spec/goal, run relevant tests, use `playwright-cli` or `playwright-skill` for browser proof, fix in-scope QA bugs, and leave evidence near the feature.
 
 Use `playwright-cli` for token-efficient browser interaction and Playwright test work. Use `playwright-skill` when a custom script is faster or more repeatable.
 
-Use gstack browser/runtime skills when their specific loop is the shortest path: `gstack-browse` or `gstack-open-gstack-browser` for dogfooding, `gstack-health`/`gstack-benchmark`/`gstack-canary` for quality checks, `gstack-careful`/`gstack-freeze`/`gstack-guard` for safety boundaries, `gstack-context-save`/`gstack-context-restore` for handoff, `gstack-document-generate`/`gstack-document-release` for docs, `gstack-setup-deploy`/`gstack-land-and-deploy` for deploy, `gstack-setup-gbrain`/`gstack-sync-gbrain`/`gstack-learn` for gbrain, `gstack-make-pdf` for PDFs, `gstack-scrape`/`gstack-skillify` for browser extraction, and `gstack-codex`/`gstack-claude` for outside model review.
-
 ### Shipping
 
-Use `gstack-ship` only after implementation and verification evidence are ready.
+Use `gstack-ship` only after implementation and QA evidence are ready. It should package, commit, push, tag, release, PR, merge, or deploy only when that side effect is requested or established by the repo's ship flow.

@@ -7,7 +7,7 @@ Date: 2026-05-19
 Created a production-quality open-source repository for a narrow autonomous web-coding stack:
 
 ```text
-gstack-office-hours -> spec-kit -> create-goal -> Codex /goal -> gstack-review -> gstack-qa -> Playwright proof -> gstack-ship
+brainstorming -> spec-kit -> create-goal -> Codex /goal -> tdd -> gstack-qa -> Playwright proof -> gstack-ship
 ```
 
 The repository includes:
@@ -60,17 +60,14 @@ Why not more: additional skills would broaden the pack without improving the spe
 
 ### garrytan/gstack
 
-As of v0.1.3, included fully:
+As of v0.1.5, included only as adapted minimal gates:
 
-- all generic gstack skills;
-- `gstack-codex` and `gstack-claude` wrappers on the install surface;
-- root `gstack` browser skill;
-- OpenClaw-specific gstack skills;
-- full curated `gstack-runtime` sidecar for browser, design, PDF, QA, review, docs, safety, GBrain, deploy, and upgrade helpers.
+- `gstack-qa`
+- `gstack-ship`
 
-Why included: gstack is the strongest adjacent runtime for browser dogfooding, review, QA, shipping, deployment, documentation, context handoff, safety guardrails, and memory/proof workflows around Codex.
+Why included: the useful gstack surface for this stack is the final QA loop and the ship gate.
 
-Why still routed narrowly: full availability should not turn every task into full process. `merlin-skills-routing` keeps the default spec-to-goal conveyor small and only routes to extra gstack skills when they are the shortest useful loop.
+Why not more: the broader gstack distribution adds product office hours, CEO reviews, browser daemons, GBrain, deploy helpers, benchmarking, docs, model wrappers, and OpenClaw-specific workflows. Those are useful elsewhere, but they distract from this package's spec-kit -> create-goal -> `/goal` center.
 
 ### microsoft/playwright-cli
 
@@ -111,10 +108,10 @@ Passed:
 
 ```bash
 npm test
-SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN_SKIP_GSTACK_BUILD=1 bash scripts/install-local.sh
+SKILL_ROOT=/tmp/merlin-skills-root bash scripts/install-local.sh
 ```
 
-As of v0.1.2, the temp install produces 25 installable skills and restores the gstack runtime shims without touching the user's real global skill roots.
+As of v0.1.5, the temp install produces 13 installable skills and does not install a gstack runtime sidecar.
 
 ## v0.1.2 Update
 
@@ -145,3 +142,11 @@ The source snapshot directories stay close to upstream, but `scripts/install-loc
 The runtime sidecar still uses upstream unprefixed directories under `$GSTACK_ROOT` (`review/`, `qa/`, `office-hours/`, etc.) because upstream gstack skill files and helper scripts depend on those paths. The installer patches installed `name:` frontmatter and sets `skill_prefix=true` so the routing layer and the installed skills agree.
 
 Validation now checks `merlin-skills-routing` against install-facing skill names, not just source directory names.
+
+## v0.1.5 Update
+
+Removed full gstack integration and kept only adapted `gstack-qa` and `gstack-ship`.
+
+Deleted all other gstack skills and the `gstack-runtime` sidecar from the repo. Rewrote the retained QA and ship skills as standalone Merlin gates that read spec-kit/`GOAL.md` artifacts, use existing repo tests, rely on Playwright skills for browser proof, and do not call gstack runtime helpers.
+
+The expected temp install count is now 13 installable skills.

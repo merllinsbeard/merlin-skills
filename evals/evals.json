@@ -23,17 +23,16 @@
       "name": "web_feature_verification",
       "input": "A UI feature has been implemented and needs proof before ship.",
       "expected": [
-        "gstack-review or gstack-qa is routed",
+        "gstack-qa is routed",
         "playwright-cli is used for browser proof",
         "ship is last"
       ]
     },
     {
-      "name": "route_product_idea_to_office_hours",
+      "name": "route_product_idea_to_brainstorming",
       "input": "User has an early product idea and asks whether it is worth building.",
       "expected": [
-        "gstack-office-hours is selected before gstack-plan-ceo-review",
-        "gstack-plan-ceo-review is reserved for concrete plan critique",
+        "brainstorming is selected before spec-kit when the idea is ambiguous",
         "create-goal is not used until spec-kit artifacts exist"
       ]
     },
@@ -43,7 +42,7 @@
       "expected": [
         "install-merlin-skills is selected",
         "both global Codex and global Claude roots are targeted",
-        "gstack runtime remains at $HOME/.claude/skills/gstack"
+        "no gstack runtime sidecar is installed"
       ]
     },
     {
@@ -56,21 +55,12 @@
       ]
     },
     {
-      "name": "route_browser_dogfood_to_gstack_browse",
+      "name": "route_browser_dogfood_to_playwright",
       "input": "User asks to dogfood a local web app, click through the flow, and capture screenshots.",
       "expected": [
-        "gstack-browse or gstack-open-gstack-browser is selected",
-        "playwright-cli remains available for generated tests",
-        "review and ship are not selected before browser evidence exists"
-      ]
-    },
-    {
-      "name": "route_gbrain_setup_to_full_gstack",
-      "input": "User asks to set up gbrain for this repo and sync learnings.",
-      "expected": [
-        "gstack-setup-gbrain is selected before gstack-sync-gbrain",
-        "gstack-learn is reserved for reading or managing captured learnings",
-        "create-goal is not selected because this is runtime setup"
+        "playwright-cli is selected for browser proof",
+        "playwright-skill remains available for reusable scripts",
+        "gstack-ship is not selected before browser evidence exists"
       ]
     },
     {

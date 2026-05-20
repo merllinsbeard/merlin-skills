@@ -12,7 +12,7 @@ npm test
 npm run install:codex
 ```
 
-This copies installable skills into `~/.codex/skills`. Gstack-derived skills are installed with `gstack-` prefixes.
+This copies installable skills into `~/.codex/skills`. Retained gstack-derived skills are installed as `gstack-qa` and `gstack-ship`.
 
 ## Install Into Claude
 
@@ -20,13 +20,13 @@ This copies installable skills into `~/.codex/skills`. Gstack-derived skills are
 npm run install:claude
 ```
 
-This copies installable skills into `~/.claude/skills`. Gstack-derived skills are installed with `gstack-` prefixes.
+This copies installable skills into `~/.claude/skills`. This release does not install or build a gstack runtime sidecar.
 
 ## Install Into Both Global Roots
 
 ```bash
-SKILL_ROOT="$HOME/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
-SKILL_ROOT="$HOME/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+SKILL_ROOT="$HOME/.codex/skills" bash scripts/install-local.sh
+SKILL_ROOT="$HOME/.claude/skills" bash scripts/install-local.sh
 ```
 
 This is the default route used by `install-merlin-skills` when the user asks for a global install without naming Codex or Claude.
@@ -37,43 +37,33 @@ Project-local Codex:
 
 ```bash
 PROJECT_ROOT=/path/to/project
-SKILL_ROOT="$PROJECT_ROOT/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+SKILL_ROOT="$PROJECT_ROOT/.codex/skills" bash scripts/install-local.sh
 ```
 
 Project-local Claude:
 
 ```bash
 PROJECT_ROOT=/path/to/project
-SKILL_ROOT="$PROJECT_ROOT/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+SKILL_ROOT="$PROJECT_ROOT/.claude/skills" bash scripts/install-local.sh
 ```
 
 Project-local installs should also add a compact `## Merlin Skills` block to the project's `AGENTS.md` for Codex or `CLAUDE.md` for Claude. The `install-merlin-skills` meta skill owns that instruction-file update.
 
-## gstack Runtime Sidecar
+## Legacy gstack Cleanup
 
-gstack skills expect helpers at:
+The installer removes stale Merlin-managed gstack skills from the selected skill root when it can identify them, for example `gstack-review`, `gstack-office-hours`, or old unprefixed `review`.
 
-```text
-~/.claude/skills/gstack/
-```
-
-The installer always syncs `gstack-runtime/` there, even when installing into Codex. This preserves upstream gstack skill behavior without editing copied gstack skills. Runtime `SKILL.md` files are not committed under `gstack-runtime`; the installer restores them by overlaying the top-level `skills/<name>/SKILL.md` files into the sidecar.
-
-User-facing gstack skills are namespaced in the selected skill root: `gstack-review`, `gstack-qa`, `gstack-office-hours`, `gstack-codex`, and so on. The runtime sidecar keeps upstream unprefixed directories like `review/`, `qa/`, and `office-hours/`.
-
-The installer attempts to build `browse/dist/browse`, `browse/dist/find-browse`, `design/dist/design`, `make-pdf/dist/pdf`, and `bin/gstack-global-discover` if Bun is available. To skip that step:
-
-```bash
-MERLIN_SKIP_GSTACK_BUILD=1 npm run install:codex
-```
+It does not automatically delete `~/.claude/skills/gstack`, because that directory may belong to a standalone gstack install outside Merlin Skills.
 
 ## Temporary Install Test
 
 ```bash
-SKILL_ROOT=/tmp/merlin-skills-root GSTACK_ROOT=/tmp/merlin-gstack-runtime MERLIN_SKIP_GSTACK_BUILD=1 bash scripts/install-local.sh
+rm -rf /tmp/merlin-skills-root
+SKILL_ROOT=/tmp/merlin-skills-root bash scripts/install-local.sh
 find /tmp/merlin-skills-root -maxdepth 2 -name SKILL.md | sort
-test -f /tmp/merlin-skills-root/gstack-review/SKILL.md
-test -f /tmp/merlin-gstack-runtime/review/SKILL.md
+test -f /tmp/merlin-skills-root/gstack-qa/SKILL.md
+test -f /tmp/merlin-skills-root/gstack-ship/SKILL.md
+test ! -e /tmp/merlin-skills-root/gstack-review/SKILL.md
 ```
 
-This release should produce 63 installable `SKILL.md` files in the selected skill root.
+This release should produce 13 installable `SKILL.md` files in the selected skill root.

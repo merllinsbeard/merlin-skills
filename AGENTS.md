@@ -9,7 +9,7 @@ For any non-trivial task, load `skills/merlin-skills-routing/SKILL.md` before se
 The default sequence is:
 
 ```text
-route -> gstack-office-hours when useful -> spec -> create-goal -> /goal -> gstack-review -> gstack-qa -> browser proof -> gstack-ship
+route -> brainstorming when useful -> spec -> create-goal -> /goal -> tdd -> gstack-qa -> browser proof -> gstack-ship
 ```
 
 Use the smallest skill chain that covers the work. Do not load every skill by default.
@@ -46,7 +46,7 @@ Do not start long autonomous work from a loose chat summary when a spec director
 | Need | Preferred skill route |
 | --- | --- |
 | Install or refresh Merlin Skills globally or for a project | `install-merlin-skills` |
-| Product idea, early concept, or "is this worth building?" | `gstack-office-hours` |
+| Product idea, early concept, or "is this worth building?" | `brainstorming` then spec-kit |
 | Ambiguous creative feature | `brainstorming` |
 | Convert conversation to PRD | `to-prd` |
 | Stress-test assumptions against docs | `grill-with-docs` |
@@ -54,34 +54,16 @@ Do not start long autonomous work from a loose chat summary when a spec director
 | Build or fix with tests | `tdd` |
 | Debug hard bug or regression | `diagnose` |
 | Create durable Codex goal | `create-goal` |
-| Review code before landing | `gstack-review` |
 | QA and fix web app | `gstack-qa` |
-| QA report only | `gstack-qa-only` |
 | Browser proof or generated Playwright tests | `playwright-cli` |
 | Custom Playwright automation | `playwright-skill` |
-| Browser dogfooding or screenshots | `gstack-browse` or `gstack-open-gstack-browser` |
-| Safety guardrails or edit boundary | `gstack-careful`, `gstack-freeze`, `gstack-guard`, `gstack-unfreeze` |
-| Health, perf, benchmark, or canary | `gstack-health`, `gstack-benchmark`, `gstack-canary` |
-| Context handoff | `gstack-context-save`, `gstack-context-restore` |
-| Documentation generation or release docs | `gstack-document-generate`, `gstack-document-release` |
-| Deploy setup or land-and-deploy | `gstack-setup-deploy`, `gstack-land-and-deploy` |
-| GBrain setup, sync, or learnings | `gstack-setup-gbrain`, `gstack-sync-gbrain`, `gstack-learn` |
-| PDF export | `gstack-make-pdf` |
-| Scraping or scrape skill creation | `gstack-scrape`, `gstack-skillify` |
-| Outside model review/challenge | `gstack-codex`, `gstack-claude` |
-| OpenClaw-specific workflow | matching `gstack-openclaw-*` skill |
-| UI/design plan review | `gstack-plan-design-review` |
-| Engineering plan review | `gstack-plan-eng-review` |
-| Founder/product scope review after a concrete plan exists | `gstack-plan-ceo-review` |
-| Developer-experience review | `gstack-plan-devex-review` |
-| Tune question sensitivity | `gstack-plan-tune` |
 | Ship PR/release | `gstack-ship` |
 
 ## Upstream Boundaries
 
-Copied upstream skill sources should stay verbatim. Do not rewrite them during normal maintenance. The installer may patch installed gstack `name:` frontmatter only to enforce the `gstack-` install namespace.
+Copied upstream skill sources should stay verbatim unless this repo explicitly owns the adaptation.
 
-The only intentionally adapted upstream idea is `create-goal`, which is derived from AB Method's create-goal flow and rewritten to use spec-kit artifacts instead of AB Method's project structure.
+The intentionally adapted upstream ideas are `create-goal`, `gstack-qa`, and `gstack-ship`. Everything else should stay close to the selected upstream source or be excluded.
 
 The full spec-kit repository is archived under `vendor-snapshots/archives/` instead of extracted into the runtime skill tree. Keep it that way unless the installer and validators are updated to avoid recursive skill discovery.
 
@@ -100,6 +82,6 @@ SKILL_ROOT=/tmp/merlin-skills-root bash scripts/install-local.sh
 find /tmp/merlin-skills-root -maxdepth 2 -name SKILL.md | sort
 ```
 
-Gstack-derived install names must stay prefixed in the skill root (`gstack-review`, `gstack-qa`, `gstack-office-hours`, etc.). The gstack runtime sidecar under `~/.claude/skills/gstack` keeps upstream unprefixed directories.
+Gstack-derived install names must stay prefixed in the skill root. This package keeps only `gstack-qa` and `gstack-ship`; do not reintroduce the full gstack runtime surface.
 
 Do not claim the package is ready until validation passes.

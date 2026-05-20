@@ -36,28 +36,26 @@ Pick exactly one target mode from the user's request:
 
 Default to both global only when the user says "global" without naming a runtime.
 
-For all normal modes, keep:
+This release no longer installs a gstack runtime sidecar. `GSTACK_ROOT` may be passed for backward-compatible scripts, but `scripts/install-local.sh` does not sync or build `~/.claude/skills/gstack`.
+
+For all normal modes, use only:
 
 ```bash
-GSTACK_ROOT="$HOME/.claude/skills/gstack"
+SKILL_ROOT="<target-skill-root>"
 ```
 
-Only use project-local or custom `GSTACK_ROOT` when the user explicitly asks. Full gstack skills call helpers from the global gstack runtime path, and vendoring that runtime inside projects should not be the default.
+Do not delete an existing `~/.claude/skills/gstack` directory automatically. It may belong to a standalone gstack install.
 
 ## Gstack Prefix Contract
 
-Install every gstack-derived user-facing skill with the `gstack-` prefix. This avoids collisions with skills from Matt Pocock, Merlin-owned meta skills, project-local skills, or future packs.
+Install every retained gstack-derived user-facing skill with the `gstack-` prefix. This avoids collisions with skills from Matt Pocock, Merlin-owned meta skills, project-local skills, or future packs.
 
 Examples:
 
-- source `skills/review` installs as `$SKILL_ROOT/gstack-review`;
 - source `skills/qa` installs as `$SKILL_ROOT/gstack-qa`;
-- source `skills/office-hours` installs as `$SKILL_ROOT/gstack-office-hours`;
-- source `skills/codex` installs as `$SKILL_ROOT/gstack-codex`;
-- already-prefixed source skills such as `skills/gstack-upgrade` and `skills/gstack-openclaw-ceo-review` keep their names;
-- the root browser/runtime entrypoint installs as `$SKILL_ROOT/gstack`.
+- source `skills/ship` installs as `$SKILL_ROOT/gstack-ship`.
 
-Do not rename `$GSTACK_ROOT` runtime directories. They must stay unprefixed (`$GSTACK_ROOT/review`, `$GSTACK_ROOT/qa`, `$GSTACK_ROOT/office-hours`, etc.) because upstream gstack skill files and helper scripts refer to those paths. The installer patches installed `name:` frontmatter and sets gstack `skill_prefix=true`.
+All other gstack skills are intentionally excluded. The installer removes stale Merlin-managed copies such as `gstack-review`, `gstack-office-hours`, and `gstack-browse` from the selected `SKILL_ROOT` when it can identify them as gstack-managed.
 
 ## Locate The Merlin Skills Repo
 
@@ -98,40 +96,40 @@ Run commands from the source checkout.
 Global Codex:
 
 ```bash
-SKILL_ROOT="$HOME/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+SKILL_ROOT="$HOME/.codex/skills" bash scripts/install-local.sh
 ```
 
 Global Claude:
 
 ```bash
-SKILL_ROOT="$HOME/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+SKILL_ROOT="$HOME/.claude/skills" bash scripts/install-local.sh
 ```
 
 Both global:
 
 ```bash
-SKILL_ROOT="$HOME/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
-SKILL_ROOT="$HOME/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash scripts/install-local.sh
+SKILL_ROOT="$HOME/.codex/skills" bash scripts/install-local.sh
+SKILL_ROOT="$HOME/.claude/skills" bash scripts/install-local.sh
 ```
 
 Project Codex:
 
 ```bash
 PROJECT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-SKILL_ROOT="$PROJECT_ROOT/.codex/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash "$MERLIN_SKILLS_REPO/scripts/install-local.sh"
+SKILL_ROOT="$PROJECT_ROOT/.codex/skills" bash "$MERLIN_SKILLS_REPO/scripts/install-local.sh"
 ```
 
 Project Claude:
 
 ```bash
 PROJECT_ROOT="$(git rev-parse --show-toplevel 2>/dev/null || pwd)"
-SKILL_ROOT="$PROJECT_ROOT/.claude/skills" GSTACK_ROOT="$HOME/.claude/skills/gstack" bash "$MERLIN_SKILLS_REPO/scripts/install-local.sh"
+SKILL_ROOT="$PROJECT_ROOT/.claude/skills" bash "$MERLIN_SKILLS_REPO/scripts/install-local.sh"
 ```
 
 Custom:
 
 ```bash
-SKILL_ROOT="<absolute-skill-root>" GSTACK_ROOT="${GSTACK_ROOT:-$HOME/.claude/skills/gstack}" bash "$MERLIN_SKILLS_REPO/scripts/install-local.sh"
+SKILL_ROOT="<absolute-skill-root>" bash "$MERLIN_SKILLS_REPO/scripts/install-local.sh"
 ```
 
 ## Project Instruction Block
@@ -149,7 +147,7 @@ If the file has an existing `## Merlin Skills` block, replace only that block. O
 
 Use `merlin-skills-routing` before non-trivial implementation work and always before long-running `/goal` work.
 
-Default route: `gstack-office-hours` or `brainstorming` -> spec-kit -> `create-goal` -> `/goal` -> `gstack-review` -> `gstack-qa` -> browser proof -> `gstack-ship`.
+Default route: `brainstorming` or `to-prd` -> spec-kit -> `create-goal` -> `/goal` -> `tdd` -> `gstack-qa` -> browser proof -> `gstack-ship`.
 
 Create or refresh `GOAL.md` from spec-kit artifacts before autonomous implementation. Use `install-merlin-skills` to refresh this project's local skill installation.
 ```
@@ -163,14 +161,13 @@ After install, verify:
 ```bash
 find "$SKILL_ROOT" -maxdepth 2 -name SKILL.md | wc -l
 test -f "$SKILL_ROOT/install-merlin-skills/SKILL.md"
-test -f "$SKILL_ROOT/gstack-office-hours/SKILL.md"
-test -f "$SKILL_ROOT/gstack-review/SKILL.md"
-test -f "$GSTACK_ROOT/office-hours/SKILL.md"
-grep -q '^name: gstack-office-hours$' "$SKILL_ROOT/gstack-office-hours/SKILL.md"
-grep -q '^name: gstack-office-hours$' "$GSTACK_ROOT/office-hours/SKILL.md"
+test -f "$SKILL_ROOT/gstack-qa/SKILL.md"
+test -f "$SKILL_ROOT/gstack-ship/SKILL.md"
+test ! -e "$SKILL_ROOT/gstack-review/SKILL.md"
+grep -q '^name: gstack-qa$' "$SKILL_ROOT/gstack-qa/SKILL.md"
 ```
 
-Expected installable skill count for this release: `63`.
+Expected installable skill count for this release: `13`.
 
 For project-local installs, also verify the instruction file contains exactly one `## Merlin Skills` block.
 
@@ -181,7 +178,6 @@ Report:
 - source checkout path;
 - target mode;
 - final `SKILL_ROOT`;
-- final `GSTACK_ROOT`;
 - whether `npm test` passed before install;
 - installable skill count;
 - instruction file updated, if project-local.

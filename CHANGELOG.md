@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.5 - 2026-05-20
+
+- Removed full gstack integration and deleted the `gstack-runtime` sidecar.
+- Kept only adapted `gstack-qa` and `gstack-ship` as standalone Merlin workflow gates.
+- Updated installer cleanup, routing, validation, docs, manifest, notices, and release notes for 13 installable skills.
+
 ## 0.1.4 - 2026-05-20
 
 - Namespaced all gstack-derived user-facing skills on install with the `gstack-` prefix.
