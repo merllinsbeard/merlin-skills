@@ -23,6 +23,16 @@ specs/<feature>/checklists/
 .specify/memory/constitution.md
 ```
 
+Use the official `speckit-*` skills to create or refresh these inputs:
+
+- `speckit-constitution`
+- `speckit-specify`
+- `speckit-clarify`
+- `speckit-plan`
+- `speckit-tasks`
+- `speckit-analyze`
+- `speckit-checklist`
+
 ## Output
 
 ```text
@@ -43,4 +53,3 @@ Spec-kit already provides the better source-of-truth structure for web coding. S
 ## Refusal Is A Feature
 
 The skill should refuse to write `GOAL.md` when the spec is unclear, tasks are not executable, or gates are unresolved. A weak goal causes long autonomous work to drift.
-

@@ -9,7 +9,7 @@ For any non-trivial task, load `skills/merlin-skills-routing/SKILL.md` before se
 The default sequence is:
 
 ```text
-route -> brainstorming when useful -> spec -> create-goal -> /goal -> tdd -> gstack-qa -> browser proof -> gstack-ship
+route -> brainstorming when useful -> speckit-* artifacts -> create-goal -> /goal -> tdd -> gstack-qa -> browser proof -> gstack-ship
 ```
 
 Use the smallest skill chain that covers the work. Do not load every skill by default.
@@ -46,11 +46,13 @@ Do not start long autonomous work from a loose chat summary when a spec director
 | Need | Preferred skill route |
 | --- | --- |
 | Install or refresh Merlin Skills globally or for a project | `install-merlin-skills` |
-| Product idea, early concept, or "is this worth building?" | `brainstorming` then spec-kit |
+| Install, verify, initialize, or manage GitHub Spec Kit CLI/integration | `speckit-cli` |
+| Product idea, early concept, or "is this worth building?" | `brainstorming` then `speckit-*` |
 | Ambiguous creative feature | `brainstorming` |
 | Convert conversation to PRD | `to-prd` |
 | Stress-test assumptions against docs | `grill-with-docs` |
 | Understand a broad area | `zoom-out` |
+| Create or refresh Spec Kit artifacts | `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-tasks`, then `speckit-analyze`/`speckit-checklist` when useful |
 | Build or fix with tests | `tdd` |
 | Debug hard bug or regression | `diagnose` |
 | Create durable Codex goal | `create-goal` |
@@ -65,7 +67,7 @@ Copied upstream skill sources should stay verbatim unless this repo explicitly o
 
 The intentionally adapted upstream ideas are `create-goal`, `gstack-qa`, and `gstack-ship`. Everything else should stay close to the selected upstream source or be excluded.
 
-The full spec-kit repository is archived under `vendor-snapshots/archives/` instead of extracted into the runtime skill tree. Keep it that way unless the installer and validators are updated to avoid recursive skill discovery.
+The full spec-kit repository is archived under `vendor-snapshots/archives/` instead of extracted into the runtime skill tree. Only official generated Codex `speckit-*` skills are promoted into `skills/`; do not extract the whole upstream repository into the live tree.
 
 ## Verification
 

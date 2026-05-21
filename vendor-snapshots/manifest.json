@@ -1,20 +1,29 @@
 {
   "schema": 1,
-  "generated_at": "2026-05-19",
+  "generated_at": "2026-05-21",
   "package": "merlin-skills",
   "upstreams": [
     {
       "name": "github/spec-kit",
       "repository": "https://github.com/github/spec-kit",
-      "commit": "51e6a140e291f6f83b920fcf848531d17940ef9d",
+      "commit": "f16468f21f4efa7a9950444e5594dc9125a56ac3",
       "license": "MIT",
       "license_file": "third_party/licenses/github-spec-kit.LICENSE",
-      "purpose": "Canonical spec, plan, tasks, constitution, and spec-driven implementation source.",
+      "purpose": "Canonical spec, plan, tasks, constitution, CLI, and Codex skills-based Spec Kit workflow source.",
       "copied_paths": [
-        "vendor-snapshots/archives/github-spec-kit-51e6a140e291.tar.gz"
+        "vendor-snapshots/archives/github-spec-kit-f16468f21f4e.tar.gz",
+        "skills/speckit-analyze",
+        "skills/speckit-checklist",
+        "skills/speckit-clarify",
+        "skills/speckit-constitution",
+        "skills/speckit-implement",
+        "skills/speckit-plan",
+        "skills/speckit-specify",
+        "skills/speckit-tasks",
+        "skills/speckit-taskstoissues"
       ],
-      "archive_path": "vendor-snapshots/archives/github-spec-kit-51e6a140e291.tar.gz",
-      "archive_sha256": "a320f68890d6dfb7f98b5d89e591ca2a319d951ddf945e838176682c2a02d07e"
+      "archive_path": "vendor-snapshots/archives/github-spec-kit-f16468f21f4e.tar.gz",
+      "archive_sha256": "d0f9cf588e9c073598c55754cfe116ec54b98e2b1181cfdc8228f146d8ad8545"
     },
     {
       "name": "ayoubben18/ab-method",

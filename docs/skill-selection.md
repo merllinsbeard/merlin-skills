@@ -14,12 +14,36 @@ Included:
 
 - `merlin-skills-routing`: mandatory smallest-chain router before non-trivial `/goal` work.
 - `install-merlin-skills`: installer router for global Codex/Claude roots and project-local `.codex/skills` or `.claude/skills` roots.
+- `speckit-cli`: official GitHub Spec Kit `specify` CLI setup and maintenance wrapper.
 
 These are repo-owned because they define how this distribution is selected and installed. They are not upstream snapshots.
 
 ### github/spec-kit
 
-Included completely as a source archive. It provides the canonical spec-driven structure and should remain the main planning substrate.
+Included completely as a source archive and as official generated Codex skills:
+
+- `speckit-constitution`
+- `speckit-specify`
+- `speckit-clarify`
+- `speckit-plan`
+- `speckit-tasks`
+- `speckit-analyze`
+- `speckit-checklist`
+- `speckit-taskstoissues`
+- `speckit-implement`
+
+These provide the canonical spec-driven structure and should remain the main planning substrate.
+
+Default use:
+
+- use `speckit-cli` to install or initialize the official CLI/integration;
+- use `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, and `speckit-tasks` to create the artifacts;
+- use `speckit-analyze` and `speckit-checklist` as quality gates;
+- use `create-goal` and Codex `/goal` for Merlin's default implementation path.
+
+`speckit-implement` is included for upstream completeness but is not the default Merlin implementation path. `speckit-taskstoissues` is included but should only run when the user explicitly wants GitHub issues.
+
+Not included by default: `speckit-git-*` extension skills. Git side effects should stay explicit and are already covered by repo git rules and `gstack-ship`.
 
 ### AB Method create-goal
 
@@ -46,7 +70,7 @@ Included only as adapted minimal gates:
 
 Why included: this stack needs a strong post-implementation QA gate and a final ship gate. The rest of gstack is too much process for the core Merlin loop.
 
-Not included: office hours, CEO review, browser daemon, deploy helpers, GBrain, benchmark/canary, OpenClaw-specific workflows, model wrappers, PDF, scraping, context save/restore, and full review-army flows. Those are useful in standalone gstack, but they pull the package away from the spec-kit -> create-goal -> `/goal` center.
+Not included: office hours, CEO review, browser daemon, deploy helpers, GBrain, benchmark/canary, OpenClaw-specific workflows, model wrappers, PDF, scraping, context save/restore, and full review-army flows. Those are useful in standalone gstack, but they pull the package away from the `speckit-* -> create-goal -> /goal` center.
 
 ### Playwright
 
@@ -70,6 +94,7 @@ Not included: the rest of Superpowers. This package only needs the design-before
 These were deliberately kept out of the primary package:
 
 - full agent control boards;
+- default `speckit-git-*` side-effect commands;
 - low-code workflow platforms;
 - alternate full-stack SaaS templates;
 - stealth/browser scraping stacks;
