@@ -5,9 +5,10 @@ This repository contains repo-owned files under the MIT license plus selected up
 ## github/spec-kit
 
 - Repository: https://github.com/github/spec-kit
-- Commit: `51e6a140e291f6f83b920fcf848531d17940ef9d`
+- Commit: `f16468f21f4efa7a9950444e5594dc9125a56ac3`
 - License: MIT
-- Included as full source archive: `vendor-snapshots/archives/github-spec-kit-51e6a140e291.tar.gz`
+- Included as full source archive: `vendor-snapshots/archives/github-spec-kit-f16468f21f4e.tar.gz`
+- Included generated Codex skills: `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-tasks`, `speckit-analyze`, `speckit-checklist`, `speckit-taskstoissues`, `speckit-implement`
 - License copy: `third_party/licenses/github-spec-kit.LICENSE`
 
 ## ayoubben18/ab-method

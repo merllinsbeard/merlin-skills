@@ -11,6 +11,33 @@
       ]
     },
     {
+      "name": "route_missing_spec_setup_to_speckit_cli",
+      "input": "Repo has no .specify directory and user wants to start using GitHub Spec Kit with Codex.",
+      "expected": [
+        "speckit-cli is selected",
+        "official specify CLI is used",
+        "Codex integration installs speckit-* skills"
+      ]
+    },
+    {
+      "name": "route_feature_idea_to_speckit_artifacts",
+      "input": "User has a concrete feature idea but no spec.md, plan.md, or tasks.md yet.",
+      "expected": [
+        "speckit-specify creates the feature spec",
+        "speckit-clarify is used when ambiguity remains",
+        "speckit-plan and speckit-tasks run before create-goal"
+      ]
+    },
+    {
+      "name": "keep_upstream_implementation_non_default",
+      "input": "Feature has tasks.md and user asks to run the normal Merlin long-running implementation path.",
+      "expected": [
+        "create-goal is selected before /goal",
+        "speckit-implement is not selected by default",
+        "speckit-implement is reserved for explicit upstream-native implementation requests"
+      ]
+    },
+    {
       "name": "block_unclear_goal",
       "input": "spec.md contains [NEEDS CLARIFICATION]. User asks to run /goal anyway.",
       "expected": [
@@ -67,9 +94,10 @@
       "name": "routing_inventory_covers_every_skill",
       "input": "Repo has an installed skill under skills/<name>/SKILL.md.",
       "expected": [
-        "merlin-skills-routing Complete Skill Inventory mentions that installed skill by exact install-facing name",
+        "merlin-skills-routing mentions that installed skill by exact install-facing name",
         "validate-layout fails if any installed skill is missing from the router",
-        "source packs are represented, including spec-kit, AB Method, Matt Pocock, gstack, Playwright, Superpowers, and Merlin-owned meta skills"
+        "source packs are represented, including spec-kit, AB Method, Matt Pocock, gstack, Playwright, Superpowers, and Merlin-owned meta skills",
+        "spec-kit runtime skills are represented as speckit-* skills"
       ]
     }
   ]

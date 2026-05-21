@@ -12,7 +12,7 @@ npm test
 npm run install:codex
 ```
 
-This copies installable skills into `~/.codex/skills`. Retained gstack-derived skills are installed as `gstack-qa` and `gstack-ship`.
+This copies installable skills into `~/.codex/skills`. Retained gstack-derived skills are installed as `gstack-qa` and `gstack-ship`; GitHub Spec Kit skills are installed as `speckit-*`.
 
 ## Install Into Claude
 
@@ -61,9 +61,13 @@ It does not automatically delete `~/.claude/skills/gstack`, because that directo
 rm -rf /tmp/merlin-skills-root
 SKILL_ROOT=/tmp/merlin-skills-root bash scripts/install-local.sh
 find /tmp/merlin-skills-root -maxdepth 2 -name SKILL.md | sort
+test -f /tmp/merlin-skills-root/speckit-cli/SKILL.md
+test -f /tmp/merlin-skills-root/speckit-specify/SKILL.md
+test -f /tmp/merlin-skills-root/speckit-plan/SKILL.md
+test -f /tmp/merlin-skills-root/speckit-tasks/SKILL.md
 test -f /tmp/merlin-skills-root/gstack-qa/SKILL.md
 test -f /tmp/merlin-skills-root/gstack-ship/SKILL.md
 test ! -e /tmp/merlin-skills-root/gstack-review/SKILL.md
 ```
 
-This release should produce 13 installable `SKILL.md` files in the selected skill root.
+This release should produce 23 installable `SKILL.md` files in the selected skill root.

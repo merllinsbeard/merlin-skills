@@ -53,6 +53,16 @@ playwright-cli
 playwright-skill
 qa
 ship
+speckit-analyze
+speckit-checklist
+speckit-clarify
+speckit-cli
+speckit-constitution
+speckit-implement
+speckit-plan
+speckit-specify
+speckit-tasks
+speckit-taskstoissues
 tdd
 to-prd
 zoom-out
@@ -66,8 +76,8 @@ for skill in $required_skills; do
 done
 
 actual_count="$(find skills -mindepth 2 -maxdepth 2 -name SKILL.md -print | wc -l | tr -d ' ')"
-if [ "$actual_count" != "13" ]; then
-  echo "Expected 13 installable skills, found $actual_count" >&2
+if [ "$actual_count" != "23" ]; then
+  echo "Expected 23 installable skills, found $actual_count" >&2
   fail=1
 fi
 
@@ -90,7 +100,7 @@ THIRD_PARTY_NOTICES.md
 assets/merlin-skills-flow.svg
 assets/merlin-skills-cover.png
 vendor-snapshots/manifest.json
-vendor-snapshots/archives/github-spec-kit-51e6a140e291.tar.gz
+vendor-snapshots/archives/github-spec-kit-f16468f21f4e.tar.gz
 vendor-snapshots/ab-method/agents/ab-create-goal.SKILL.vendor.md
 vendor-snapshots/ab-method/core/create-goal.md
 third_party/licenses/github-spec-kit.LICENSE

@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.2.0 - 2026-05-21
+
+- Refreshed `github/spec-kit` provenance to official release `v0.8.12`.
+- Added official Codex `speckit-*` runtime skills generated from GitHub Spec Kit.
+- Added repo-owned `speckit-cli` wrapper for installing, verifying, initializing, and managing the official `specify` CLI.
+- Rewrote routing around simple goal-driven development phases instead of package taxonomy.
+- Updated installer validation, docs, manifest, notices, and evals for 23 installable skills.
+
 ## 0.1.5 - 2026-05-20
 
 - Removed full gstack integration and deleted the `gstack-runtime` sidecar.

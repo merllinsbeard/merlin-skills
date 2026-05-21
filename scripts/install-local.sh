@@ -154,5 +154,6 @@ if ! same_existing_path "$SKILL_ROOT/gstack" "$GSTACK_ROOT"; then
 fi
 
 echo "Installed Merlin Skills into: $SKILL_ROOT"
+echo "Installed GitHub Spec Kit skills as: speckit-*"
 echo "Installed gstack-derived skills as: gstack-qa gstack-ship"
 echo "No gstack runtime sidecar is installed by this release."

@@ -147,9 +147,9 @@ If the file has an existing `## Merlin Skills` block, replace only that block. O
 
 Use `merlin-skills-routing` before non-trivial implementation work and always before long-running `/goal` work.
 
-Default route: `brainstorming` or `to-prd` -> spec-kit -> `create-goal` -> `/goal` -> `tdd` -> `gstack-qa` -> browser proof -> `gstack-ship`.
+Default route: `brainstorming` or `to-prd` -> `speckit-cli` when setup is missing -> `speckit-*` artifact skills -> `create-goal` -> `/goal` -> `tdd` or `diagnose` -> `gstack-qa` -> browser proof -> `gstack-ship`.
 
-Create or refresh `GOAL.md` from spec-kit artifacts before autonomous implementation. Use `install-merlin-skills` to refresh this project's local skill installation.
+Create or refresh `GOAL.md` from Spec Kit artifacts before autonomous implementation. Use `install-merlin-skills` to refresh this project's local skill installation.
 ```
 
 Do not copy the global adapter into a project. Add only this project-specific block.
@@ -161,13 +161,17 @@ After install, verify:
 ```bash
 find "$SKILL_ROOT" -maxdepth 2 -name SKILL.md | wc -l
 test -f "$SKILL_ROOT/install-merlin-skills/SKILL.md"
+test -f "$SKILL_ROOT/speckit-cli/SKILL.md"
+test -f "$SKILL_ROOT/speckit-specify/SKILL.md"
+test -f "$SKILL_ROOT/speckit-plan/SKILL.md"
+test -f "$SKILL_ROOT/speckit-tasks/SKILL.md"
 test -f "$SKILL_ROOT/gstack-qa/SKILL.md"
 test -f "$SKILL_ROOT/gstack-ship/SKILL.md"
 test ! -e "$SKILL_ROOT/gstack-review/SKILL.md"
 grep -q '^name: gstack-qa$' "$SKILL_ROOT/gstack-qa/SKILL.md"
 ```
 
-Expected installable skill count for this release: `13`.
+Expected installable skill count for this release: `23`.
 
 For project-local installs, also verify the instruction file contains exactly one `## Merlin Skills` block.
 

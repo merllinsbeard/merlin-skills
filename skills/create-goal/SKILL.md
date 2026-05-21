@@ -7,7 +7,7 @@ description: Create a spec-kit-native Codex GOAL.md from an existing spec-kit fe
 
 Create a durable Codex `/goal` contract from spec-kit artifacts.
 
-This skill is the only adapted upstream workflow in Merlin Skills. It keeps AB Method's useful idea of a persistent `GOAL.md`, but replaces AB Method project structure with spec-kit feature directories.
+This skill is the Merlin-owned bridge from Spec Kit artifacts to Codex `/goal`. It keeps AB Method's useful idea of a persistent `GOAL.md`, but replaces AB Method project structure with spec-kit feature directories.
 
 ## When To Use
 
@@ -17,7 +17,7 @@ Use when:
 - a feature has `spec.md`, `plan.md`, and `tasks.md`;
 - autonomous implementation needs a stop condition, verification loop, and stable source-of-truth list.
 
-Do not use when the idea has no spec yet. Route to spec-kit or `brainstorming` first.
+Do not use when the idea has no spec yet. Route to `speckit-specify` or `brainstorming` first.
 
 ## Locate The Feature Directory
 
@@ -97,4 +97,3 @@ Use `templates/GOAL.md` as the shape. Keep it concise enough to paste into Codex
 5. Stop and report the output path plus any unresolved risks.
 
 Do not start implementation from this skill. The next step is Codex `/goal`.
-
