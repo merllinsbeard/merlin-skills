@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Updated routing to require a short Spec Kit consultation before every non-trivial skill decision.
+- Documented `tasks.md`, `GOAL.md`, and QA/browser proof as the existing progress and evidence layer instead of adding separate status files.
+- Added eval coverage for consultation-first routing and reuse of `tasks.md` as the progress ledger.
+
 ## 0.2.0 - 2026-05-21
 
 - Refreshed `github/spec-kit` provenance to official release `v0.8.12`.

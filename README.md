@@ -4,7 +4,7 @@
 
 Merlin Skills is an open-source skill pack for long-running Codex web coding work. It combines a narrow set of proven upstream skills and the official GitHub Spec Kit Codex skills into one operating model:
 
-`brainstorming -> speckit-* -> create-goal -> /goal -> tdd -> gstack-qa -> playwright proof -> gstack-ship`
+`Spec Kit consultation -> brainstorming when useful -> speckit-* -> create-goal -> /goal -> tdd -> gstack-qa -> playwright proof -> gstack-ship`
 
 The bias is simple: write the specification once, convert it into a durable goal contract, then let Codex work against that contract with the right specialist skill at each phase.
 
@@ -62,16 +62,19 @@ After the pack is installed, use `install-merlin-skills` when you want an agent 
 ## Core Workflow
 
 1. Run `merlin-skills-routing` first for any non-trivial project or `/goal`.
-2. Use `speckit-cli` if the project still needs `.specify/`, the official `specify` CLI, or Codex `$speckit-*` integration.
-3. Use the official `speckit-*` skills to create or refresh spec-kit artifacts: `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-tasks`, plus `speckit-analyze` or `speckit-checklist` when useful.
-4. Run `create-goal` to generate `specs/<feature>/GOAL.md` from those artifacts.
-5. Start Codex `/goal` with the generated `GOAL.md`.
-6. Use implementation skills only when routed. Gstack is deliberately minimal in this stack: QA and ship only.
-7. Keep proof attached to the spec and goal: task checkmarks, tests, screenshots, QA reports, PR links, and release notes.
+2. Start routing with a Spec Kit consultation: check `.specify/`, active `specs/<feature>/` artifacts, `GOAL.md`, task checkboxes, QA reports, browser proof, PRs, and release artifacts.
+3. Use `speckit-cli` if the project still needs `.specify/`, the official `specify` CLI, or Codex `$speckit-*` integration.
+4. Use the official `speckit-*` skills to create or refresh spec-kit artifacts: `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-tasks`, plus `speckit-analyze` or `speckit-checklist` when useful.
+5. Run `create-goal` to generate `specs/<feature>/GOAL.md` from those artifacts.
+6. Start Codex `/goal` with the generated `GOAL.md`.
+7. Use implementation skills only when routed. Gstack is deliberately minimal in this stack: QA and ship only.
+8. Keep progress and proof in the existing Spec Kit layer: `tasks.md` checkmarks, `GOAL.md` resume rules, tests, screenshots, QA reports, PR links, and release notes.
 
 ## Routing Rule
 
 The meta skill `skills/merlin-skills-routing/SKILL.md` is mandatory before goal execution. It decides the smallest useful skill chain and prevents process sprawl. It should never load every skill by default.
+
+The first routing step is always a short Spec Kit consultation. Even when the next skill is `brainstorming`, the router should decide whether the work will create, refresh, or reuse `spec.md`, `plan.md`, `tasks.md`, and `GOAL.md`.
 
 Typical routes:
 

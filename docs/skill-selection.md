@@ -3,8 +3,10 @@
 This package is intentionally opinionated. The included skills serve one process:
 
 ```text
-write spec once -> generate goal -> let Codex execute -> prove -> ship
+consult Spec Kit state -> write spec once -> generate goal -> let Codex execute -> prove -> ship
 ```
+
+The consultation step is mandatory for non-trivial work. It checks whether the project already has `.specify/`, active feature artifacts, a generated `GOAL.md`, task progress, and proof. It does not add a separate project-management layer.
 
 ## Included
 
@@ -17,6 +19,8 @@ Included:
 - `speckit-cli`: official GitHub Spec Kit `specify` CLI setup and maintenance wrapper.
 
 These are repo-owned because they define how this distribution is selected and installed. They are not upstream snapshots.
+
+`merlin-skills-routing` must always make the first Spec Kit decision: create, refresh, or reuse the current artifacts. If it routes to `brainstorming`, that is still a Spec Kit-bound discovery step, not an open-ended planning mode.
 
 ### github/spec-kit
 

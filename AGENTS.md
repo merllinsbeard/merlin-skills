@@ -6,10 +6,12 @@ This repository is a skill-first, `/goal`-first operating system for autonomous 
 
 For any non-trivial task, load `skills/merlin-skills-routing/SKILL.md` before selecting implementation skills or creating a Codex `/goal`.
 
+The router must start with a short Spec Kit consultation: inspect `.specify/`, active `specs/<feature>/` artifacts, `GOAL.md`, task progress, and existing proof before choosing the next skill.
+
 The default sequence is:
 
 ```text
-route -> brainstorming when useful -> speckit-* artifacts -> create-goal -> /goal -> tdd -> gstack-qa -> browser proof -> gstack-ship
+route -> Spec Kit consultation -> brainstorming when useful -> speckit-* artifacts -> create-goal -> /goal -> tdd -> gstack-qa -> browser proof -> gstack-ship
 ```
 
 Use the smallest skill chain that covers the work. Do not load every skill by default.

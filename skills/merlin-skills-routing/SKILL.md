@@ -9,6 +9,22 @@ Use this skill before non-trivial implementation work, and always before creatin
 
 Your job is to identify the current development phase and load only the next useful skill. Keep routing short. Do not load every skill and do not turn routing into a separate planning ceremony when the next step is obvious.
 
+## Spec Kit Consultation Pass
+
+For every non-trivial request, do a short Spec Kit consultation before choosing the next skill.
+
+Inspect whether the current work already has:
+
+- `.specify/` project infrastructure;
+- an active `specs/<feature>/` directory;
+- current `spec.md`, `plan.md`, and `tasks.md`;
+- an existing `GOAL.md`;
+- completed task checkboxes, QA reports, browser proof, PRs, or release artifacts.
+
+Then decide whether the next step should create, refresh, or reuse Spec Kit artifacts. This pass is mandatory even when the next visible skill is `brainstorming`, `to-prd`, `tdd`, `diagnose`, `gstack-qa`, or `gstack-ship`.
+
+If the idea is ambiguous or product-shaped, route to `brainstorming`, but keep Spec Kit as the destination: the design output should be concrete enough to become `spec.md`, `plan.md`, and `tasks.md`.
+
 ## Inputs To Inspect
 
 1. The user's newest request.
@@ -25,6 +41,7 @@ Return a short routing decision before doing major work:
 
 ```text
 Phase: <current phase>
+Spec Kit consultation: create | refresh | reuse | not applicable, with one short reason
 Next skill: <one skill or /goal>
 Feature dir: <path or none>
 Why: <one sentence>
@@ -38,10 +55,31 @@ Then continue with the next skill or task. Do not stop after routing unless a re
 For autonomous web coding:
 
 ```text
-brainstorming or to-prd -> speckit-cli/setup -> speckit-constitution -> speckit-specify -> speckit-clarify -> speckit-plan -> speckit-tasks -> speckit-analyze/checklist -> create-goal -> /goal -> tdd/diagnose -> gstack-qa -> playwright-cli/playwright-skill -> gstack-ship
+spec-kit consultation
+  -> brainstorming or to-prd when useful
+  -> speckit-cli/setup
+  -> speckit-constitution
+  -> speckit-specify
+  -> speckit-clarify
+  -> speckit-plan
+  -> speckit-tasks
+  -> speckit-analyze/checklist
+  -> create-goal
+  -> /goal
+  -> tdd/diagnose
+  -> gstack-qa
+  -> playwright-cli/playwright-skill
+  -> gstack-ship
+```
+
+Compact form:
+
+```text
+spec-kit consultation -> brainstorming or to-prd -> speckit-cli/setup -> speckit-constitution -> speckit-specify -> speckit-clarify -> speckit-plan -> speckit-tasks -> speckit-analyze/checklist -> create-goal -> /goal -> tdd/diagnose -> gstack-qa -> playwright-cli/playwright-skill -> gstack-ship
 ```
 
 Most work skips some phases. If `.specify/`, `spec.md`, `plan.md`, `tasks.md`, or `GOAL.md` already exists and is current, route to the first missing or stale phase.
+The durable progress layer remains Spec Kit-native: `tasks.md` checkboxes track task completion, `GOAL.md` defines the resume protocol, and QA/browser proof lives next to the feature or in the repo's existing evidence location.
 
 ## Phase Router
 

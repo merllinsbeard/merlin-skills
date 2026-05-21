@@ -16,8 +16,7 @@ Merlin Skills is intentionally narrow. New skills should earn their place in the
 A skill belongs here when it improves the spec-first `/goal` loop:
 
 ```text
-spec -> goal -> implementation -> review -> QA -> browser proof -> ship
+consult Spec Kit state -> spec -> goal -> implementation -> review -> QA -> browser proof -> ship
 ```
 
 Skills that introduce a separate project-management system, agent platform, or workflow philosophy should stay out unless they materially improve this loop.
-

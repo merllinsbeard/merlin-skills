@@ -4,10 +4,25 @@ The central rule is skill-first, then `/goal`.
 
 Do not start a long autonomous loop from a loose chat summary. Route the work, bind it to spec-kit artifacts, generate `GOAL.md`, then execute.
 
+## Spec Kit Consultation
+
+Every non-trivial route starts with a short Spec Kit consultation. This is not a separate ceremony and it does not create new state files. It is the router's first pass over the current project state:
+
+- Is `.specify/` initialized?
+- Is there an active `specs/<feature>/` directory?
+- Are `spec.md`, `plan.md`, and `tasks.md` present and current?
+- Does `GOAL.md` already exist?
+- What proof already exists: completed task checkboxes, test output, QA reports, browser screenshots, PRs, release notes?
+
+The result is a simple decision: create, refresh, or reuse Spec Kit artifacts before selecting the next skill.
+
+If the work is still ambiguous, use `brainstorming`, but keep Spec Kit as the target shape. Brainstorming should clarify the idea enough that the next step can produce or update `spec.md`, `plan.md`, and `tasks.md`.
+
 ## Standard Conveyor
 
 ```text
-brainstorming or to-prd
+spec-kit consultation
+  -> brainstorming or to-prd when useful
   -> speckit-cli/setup when needed
   -> speckit-constitution
   -> speckit-specify
@@ -31,7 +46,7 @@ Installation and refresh requests are outside the spec-to-ship conveyor. Route M
 
 ### Discovery
 
-Use `brainstorming` when the work is ambiguous, creative, product-shaped, or UX-heavy. Use `to-prd` when conversation context needs to become a concrete product requirement. Use `zoom-out` when the codebase area is unfamiliar.
+Use `brainstorming` when the work is ambiguous, creative, product-shaped, or UX-heavy. Use `to-prd` when conversation context needs to become a concrete product requirement. Use `zoom-out` when the codebase area is unfamiliar. In all three cases, first consult the existing Spec Kit artifacts so the discovery output can connect to the current feature directory or create a new one deliberately.
 
 ### Specification
 
@@ -55,6 +70,8 @@ The required feature artifacts before `create-goal` are:
 Use `create-goal` only after the spec artifacts exist. It generates `GOAL.md` and stops.
 
 `speckit-implement` exists for users who explicitly want upstream Spec Kit's native implementation command. Merlin's default route remains `create-goal -> /goal`.
+
+Progress remains in the Spec Kit artifacts: `tasks.md` checkboxes are the implementation task ledger, `GOAL.md` is the resume contract, and QA/browser proof stays next to the feature or in the repo's existing evidence location.
 
 ### Implementation
 

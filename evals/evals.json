@@ -5,6 +5,8 @@
       "name": "route_existing_spec_to_goal",
       "input": "Feature directory has spec.md, plan.md, and tasks.md. User asks to start /goal.",
       "expected": [
+        "routing starts with a Spec Kit consultation",
+        "existing spec-kit artifacts are reused instead of recreated",
         "merlin-skills-routing runs first",
         "create-goal is selected",
         "GOAL.md references spec-kit artifacts"
@@ -59,8 +61,30 @@
       "name": "route_product_idea_to_brainstorming",
       "input": "User has an early product idea and asks whether it is worth building.",
       "expected": [
+        "routing starts with a Spec Kit consultation before brainstorming",
         "brainstorming is selected before spec-kit when the idea is ambiguous",
+        "brainstorming is framed as discovery for a future spec.md, plan.md, and tasks.md",
         "create-goal is not used until spec-kit artifacts exist"
+      ]
+    },
+    {
+      "name": "consult_spec_kit_before_nontrivial_work",
+      "input": "User asks for a non-trivial implementation task in a repo that may or may not already have .specify and specs/<feature> artifacts.",
+      "expected": [
+        "merlin-skills-routing performs a Spec Kit consultation first",
+        ".specify and specs/<feature> are checked before selecting the next skill",
+        "the route decides whether to create, refresh, or reuse spec-kit artifacts",
+        "no separate GOAL_STATUS or extra project-management file is introduced by default"
+      ]
+    },
+    {
+      "name": "reuse_tasks_as_progress_layer",
+      "input": "A long-running goal is partially implemented and tasks.md contains checked and unchecked task boxes.",
+      "expected": [
+        "tasks.md checkboxes are treated as the implementation progress ledger",
+        "GOAL.md resume protocol is used for continuation",
+        "latest QA or browser proof is inspected when present",
+        "a new progress file is not required before continuing"
       ]
     },
     {
