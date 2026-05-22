@@ -2,16 +2,16 @@
 
 ## Unreleased
 
-- Updated routing to require a short Spec Kit consultation before every non-trivial skill decision.
-- Documented `tasks.md`, `GOAL.md`, and QA/browser proof as the existing progress and evidence layer instead of adding separate status files.
-- Added eval coverage for consultation-first routing and reuse of `tasks.md` as the progress ledger.
-
-## 0.2.0 - 2026-05-21
+## 0.2.0 - 2026-05-22
 
 - Refreshed `github/spec-kit` provenance to official release `v0.8.12`.
 - Added official Codex `speckit-*` runtime skills generated from GitHub Spec Kit.
 - Added repo-owned `speckit-cli` wrapper for installing, verifying, initializing, and managing the official `specify` CLI.
 - Rewrote routing around simple goal-driven development phases instead of package taxonomy.
+- Updated routing to require a short Spec Kit consultation before every non-trivial skill decision.
+- Documented `tasks.md`, `GOAL.md`, and QA/browser proof as the existing progress and evidence layer instead of adding separate status files.
+- Added eval coverage for consultation-first routing and reuse of `tasks.md` as the progress ledger.
+- Clarified that `tdd` starts after `tasks.md` and `GOAL.md` exist in the Spec Kit route, and does not replace `speckit-tasks`.
 - Updated installer validation, docs, manifest, notices, and evals for 23 installable skills.
 
 ## 0.1.5 - 2026-05-20

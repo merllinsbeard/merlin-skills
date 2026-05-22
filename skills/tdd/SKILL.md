@@ -40,6 +40,12 @@ RIGHT (vertical):
   ...
 ```
 
+## Merlin Spec Kit Placement
+
+In the Merlin Spec Kit route, use this skill as the implementation discipline after `speckit-tasks` has produced `tasks.md`, `create-goal` has produced `GOAL.md`, and Codex `/goal` has started executing a concrete implementation slice.
+
+Do not use `tdd` to replace `speckit-tasks`. The task list is the backlog; TDD is how each testable behavior is implemented: one behavior, one failing test, minimal code, then the next behavior.
+
 ## Workflow
 
 ### 1. Planning

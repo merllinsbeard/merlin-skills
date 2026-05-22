@@ -34,7 +34,8 @@ Merlin Skills owns:
 - `install-merlin-skills`
 - `speckit-cli`
 - `create-goal`
+- `tdd` placement note
 - `gstack-qa`
 - `gstack-ship`
 
-Everything else is copied or generated from upstream and should stay close to upstream unless a future release explicitly declares an adaptation. In particular, `speckit-*` skills should stay aligned with GitHub Spec Kit's Codex integration output.
+Everything else is copied or generated from upstream and should stay close to upstream unless a future release explicitly declares an adaptation. The `tdd` method remains upstream-shaped; Merlin only owns the short Spec Kit placement note. In particular, `speckit-*` skills should stay aligned with GitHub Spec Kit's Codex integration output.

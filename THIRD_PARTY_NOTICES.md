@@ -24,7 +24,7 @@ This repository contains repo-owned files under the MIT license plus selected up
 - Repository: https://github.com/mattpocock/skills
 - Commit: `d54c497aa94400a496d3f2c38be10fa5f284c5a9`
 - License: MIT
-- Included skills: `tdd`, `to-prd`, `grill-with-docs`, `diagnose`, `zoom-out`
+- Included skills: `tdd` with a Merlin Spec Kit placement note, `to-prd`, `grill-with-docs`, `diagnose`, `zoom-out`
 - License copy: `third_party/licenses/mattpocock-skills.LICENSE`
 
 ## garrytan/gstack
