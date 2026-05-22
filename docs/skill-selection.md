@@ -57,7 +57,7 @@ Included only as an adapted idea. The original AB Method has its own structure a
 
 Included:
 
-- `tdd`: implementation should be testable through behavior.
+- `tdd`: implementation should be testable through behavior; the included skill carries a Merlin placement note so it runs after Spec Kit task generation instead of replacing `speckit-tasks`.
 - `to-prd`: useful when the conversation needs to become an issue/PRD.
 - `grill-with-docs`: useful for pressure-testing plans against existing project language.
 - `diagnose`: strong bug/performance regression loop.

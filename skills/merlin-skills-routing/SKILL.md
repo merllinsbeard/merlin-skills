@@ -72,6 +72,8 @@ spec-kit consultation
   -> gstack-ship
 ```
 
+In this default route, `tdd` is an execution mode after `speckit-tasks` has produced `tasks.md`, `create-goal` has produced `GOAL.md`, and `/goal` is working an implementation slice. Do not use `tdd` to replace `speckit-tasks` or to bulk-write every test before implementation.
+
 Compact form:
 
 ```text
@@ -102,7 +104,7 @@ The durable progress layer remains Spec Kit-native: `tasks.md` checkboxes track 
 | Goal contract | Need durable Codex `/goal` contract | `create-goal` | Clear `spec.md`, `plan.md`, `tasks.md` | `specs/<feature>/GOAL.md` | Required before long `/goal` work |
 | Native upstream implementation | User explicitly wants Spec Kit native implementation instead of Merlin `/goal` | `speckit-implement` | Complete Spec Kit artifacts and approval to execute | Implementation driven by upstream tasks | Non-default; prefer `create-goal -> /goal` |
 | Autonomous execution | Goal exists and user wants Codex to work until done | `/goal` | Current `GOAL.md` | Implemented tasks and verification | Do not launch from loose chat summary |
-| Test-first build | Building a feature or normal bug fix with tests | `tdd` | Goal/tasks or clear requirement | Tested implementation | Skip for read-only review/analysis |
+| Test-first build | Building a feature or normal bug fix with tests | `tdd` | Spec Kit work: `GOAL.md` plus `tasks.md`; small non-Spec-Kit fix: clear behavior target | Tested implementation | Skip for read-only review/analysis |
 | Hard diagnosis | Broken behavior, flaky test, unknown failure, performance regression | `diagnose` | Repro target or failing signal | Root cause, fix, regression test | Route back to `tdd` for implementation if needed |
 | QA gate | Implementation exists and needs proof or fixes before ship | `gstack-qa` | Active spec/goal and runnable app/checks | QA report, tests, browser evidence, in-scope fixes | Required before ship for web work |
 | Browser proof | Need live browser interaction, screenshots, or Playwright tests | `playwright-cli` | URL/dev server or browser target | Browser proof and optional generated tests | Use before ship when UI/user flow changed |
@@ -193,7 +195,7 @@ Use only when the user explicitly wants upstream Spec Kit native implementation.
 
 ### `tdd`
 
-Use for feature work and normal bug fixes where tests can drive the change. Requires a behavior target. Produces tested code.
+Use for feature work and normal bug fixes where tests can drive the change. For Spec Kit work, use it after `tasks.md` and `GOAL.md` exist and `/goal` is executing a concrete implementation slice. For small non-Spec-Kit fixes, a clear behavior target is enough. Produces tested code.
 
 ### `diagnose`
 

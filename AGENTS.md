@@ -14,6 +14,8 @@ The default sequence is:
 route -> Spec Kit consultation -> brainstorming when useful -> speckit-* artifacts -> create-goal -> /goal -> tdd -> gstack-qa -> browser proof -> gstack-ship
 ```
 
+In this sequence, `tdd` is the implementation discipline for executing `tasks.md` slices after `GOAL.md` exists. It is not a replacement for `speckit-tasks` and it is not a bulk "write all tests first" phase.
+
 Use the smallest skill chain that covers the work. Do not load every skill by default.
 
 ## Source Of Truth
@@ -55,7 +57,7 @@ Do not start long autonomous work from a loose chat summary when a spec director
 | Stress-test assumptions against docs | `grill-with-docs` |
 | Understand a broad area | `zoom-out` |
 | Create or refresh Spec Kit artifacts | `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-tasks`, then `speckit-analyze`/`speckit-checklist` when useful |
-| Build or fix with tests | `tdd` |
+| Build or fix with tests after `tasks.md`/`GOAL.md` exist, or for a small non-Spec-Kit fix with a clear behavior target | `tdd` |
 | Debug hard bug or regression | `diagnose` |
 | Create durable Codex goal | `create-goal` |
 | QA and fix web app | `gstack-qa` |

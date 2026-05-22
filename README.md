@@ -6,7 +6,7 @@ Merlin Skills is an open-source skill pack for long-running Codex web coding wor
 
 `Spec Kit consultation -> brainstorming when useful -> speckit-* -> create-goal -> /goal -> tdd -> gstack-qa -> playwright proof -> gstack-ship`
 
-The bias is simple: write the specification once, convert it into a durable goal contract, then let Codex work against that contract with the right specialist skill at each phase.
+The bias is simple: write the specification once, convert it into a durable goal contract, then let Codex work against that contract with the right specialist skill at each phase. In the Spec Kit route, `tdd` is the implementation discipline for `tasks.md` slices after `GOAL.md` exists; it does not replace `speckit-tasks`.
 
 ## What Is Included
 
@@ -14,13 +14,13 @@ The bias is simple: write the specification once, convert it into a durable goal
 | --- | --- | --- |
 | `github/spec-kit` | Full source snapshot archive plus official Codex `speckit-*` skills | Canonical `spec.md`, `plan.md`, `tasks.md`, constitution, `specify` CLI, and spec-driven workflow. |
 | `ayoubben18/ab-method` | Only the create-goal idea, adapted into `skills/create-goal` | The useful part is the durable `GOAL.md` contract. The AB-specific structure is replaced with spec-kit artifacts. |
-| `mattpocock/skills` | `tdd`, `to-prd`, `grill-with-docs`, `diagnose`, `zoom-out` | These fill planning, pressure-testing, debugging, and test-first gaps without becoming a second orchestration system. |
+| `mattpocock/skills` | `tdd`, `to-prd`, `grill-with-docs`, `diagnose`, `zoom-out` | These fill planning, pressure-testing, debugging, and test-first gaps without becoming a second orchestration system. `tdd` includes a Merlin placement note for the Spec Kit route. |
 | `garrytan/gstack` | Only adapted `gstack-qa` and `gstack-ship` | The useful parts for this stack are final QA and shipping. Product strategy, browser daemon, GBrain, deploy, docs, and review-heavy gstack flows are intentionally excluded. |
 | `microsoft/playwright-cli` | `playwright-cli` skill | Token-efficient browser control and Playwright test workflow for agents. |
 | `lackeyjb/playwright-skill` | `playwright-skill` | General-purpose Playwright automation when scripted browser checks are better than CLI steps. |
 | `obra/superpowers` | `brainstorming` only | Strong design-first entrypoint for ambiguous creative/product work. |
 
-Most upstream skills are copied as upstream snapshots. The `speckit-*` skills are generated from the official GitHub Spec Kit Codex integration and kept close to upstream. The adapted skill sources are `skills/create-goal`, `skills/qa`, and `skills/ship`: goal creation is rewritten for spec-kit, while the retained gstack QA/ship flows are rewritten as standalone Merlin gates.
+Most upstream skills are copied as upstream snapshots. The `speckit-*` skills are generated from the official GitHub Spec Kit Codex integration and kept close to upstream. The adapted skill sources are `skills/create-goal`, `skills/tdd`, `skills/qa`, and `skills/ship`: goal creation is rewritten for spec-kit, `tdd` has a Merlin placement note, and the retained gstack QA/ship flows are rewritten as standalone Merlin gates.
 
 Repo-owned meta skills:
 
@@ -67,7 +67,7 @@ After the pack is installed, use `install-merlin-skills` when you want an agent 
 4. Use the official `speckit-*` skills to create or refresh spec-kit artifacts: `speckit-constitution`, `speckit-specify`, `speckit-clarify`, `speckit-plan`, `speckit-tasks`, plus `speckit-analyze` or `speckit-checklist` when useful.
 5. Run `create-goal` to generate `specs/<feature>/GOAL.md` from those artifacts.
 6. Start Codex `/goal` with the generated `GOAL.md`.
-7. Use implementation skills only when routed. Gstack is deliberately minimal in this stack: QA and ship only.
+7. Use implementation skills only when routed. For Spec Kit work, `tdd` starts after `tasks.md` and `GOAL.md` exist and `/goal` is executing an implementation slice. Gstack is deliberately minimal in this stack: QA and ship only.
 8. Keep progress and proof in the existing Spec Kit layer: `tasks.md` checkmarks, `GOAL.md` resume rules, tests, screenshots, QA reports, PR links, and release notes.
 
 ## Routing Rule

@@ -149,6 +149,8 @@ Use `merlin-skills-routing` before non-trivial implementation work and always be
 
 Default route: `brainstorming` or `to-prd` -> `speckit-cli` when setup is missing -> `speckit-*` artifact skills -> `create-goal` -> `/goal` -> `tdd` or `diagnose` -> `gstack-qa` -> browser proof -> `gstack-ship`.
 
+For Spec Kit work, `tdd` starts after `tasks.md` and `GOAL.md` exist and `/goal` is executing an implementation slice. Do not use `tdd` to replace `speckit-tasks`.
+
 Create or refresh `GOAL.md` from Spec Kit artifacts before autonomous implementation. Use `install-merlin-skills` to refresh this project's local skill installation.
 ```
 

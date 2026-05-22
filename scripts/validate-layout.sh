@@ -92,6 +92,28 @@ done <<EOF
 $(find skills -mindepth 2 -maxdepth 2 -name SKILL.md -print | sort)
 EOF
 
+if ! grep -qF "speckit-tasks -> speckit-analyze/checklist -> create-goal -> /goal -> tdd/diagnose" "skills/merlin-skills-routing/SKILL.md"; then
+  echo "Routing skill must keep tdd after tasks, create-goal, and /goal in the canonical route" >&2
+  fail=1
+fi
+
+if ! grep -qF "Spec Kit work: \`GOAL.md\` plus \`tasks.md\`" "skills/merlin-skills-routing/SKILL.md"; then
+  echo "Routing skill must require GOAL.md plus tasks.md before tdd for Spec Kit work" >&2
+  fail=1
+fi
+
+if ! grep -qF "Do not use \`tdd\` to replace \`speckit-tasks\`" "skills/tdd/SKILL.md"; then
+  echo "tdd skill must preserve the Merlin Spec Kit placement note" >&2
+  fail=1
+fi
+
+package_version="$(node -p "JSON.parse(require('fs').readFileSync('package.json', 'utf8')).version")"
+file_version="$(tr -d '[:space:]' < VERSION)"
+if [ "$package_version" != "$file_version" ]; then
+  echo "VERSION ($file_version) must match package.json version ($package_version)" >&2
+  fail=1
+fi
+
 required_paths="
 README.md
 AGENTS.md

@@ -40,6 +40,15 @@
       ]
     },
     {
+      "name": "route_tasks_to_tdd_slice",
+      "input": "Feature has spec.md, plan.md, tasks.md, and GOAL.md. User asks to start implementing the first testable task with TDD.",
+      "expected": [
+        "tdd is treated as the implementation discipline after tasks.md and GOAL.md exist",
+        "speckit-tasks is not replaced by tdd",
+        "the next step is one behavior, one failing test, minimal implementation, then the next behavior"
+      ]
+    },
+    {
       "name": "block_unclear_goal",
       "input": "spec.md contains [NEEDS CLARIFICATION]. User asks to run /goal anyway.",
       "expected": [

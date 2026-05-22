@@ -38,6 +38,8 @@ spec-kit consultation
   -> gstack-ship
 ```
 
+In that conveyor, `tdd` starts after `tasks.md` and `GOAL.md` exist. `speckit-tasks` creates the executable backlog; `tdd` is the vertical-slice implementation mode for a task or behavior, not an earlier planning phase.
+
 Most work should skip some steps. The router chooses the smallest useful chain.
 
 Installation and refresh requests are outside the spec-to-ship conveyor. Route Merlin pack installs to `install-merlin-skills`; route official Spec Kit CLI/project initialization to `speckit-cli`.
@@ -75,7 +77,7 @@ Progress remains in the Spec Kit artifacts: `tasks.md` checkboxes are the implem
 
 ### Implementation
 
-Use `tdd` for feature work and bug fixes where tests can drive the change. Use `diagnose` when there is a hard bug, unknown failure, or performance regression.
+Use `tdd` for feature work and bug fixes where tests can drive the change. In Spec Kit work, start it from the current `tasks.md` implementation slice after `GOAL.md` exists; for small non-Spec-Kit fixes, a clear behavior target is enough. Use `diagnose` when there is a hard bug, unknown failure, or performance regression.
 
 ### Verification
 
